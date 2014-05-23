@@ -1,0 +1,24 @@
+@( page: String )( content: Html )
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Niklas Klein</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
+	</head>
+	<body id="@page">
+		@view.widget.header.html.index()
+
+		@content
+
+		@view.widget.footer.html.index()
+
+		<script src="@routes.Assets.at( "javascript/jquery-2.1.0.min.js" )"></script>
+		<script src="@routes.Assets.at( "javascript/main.js" )"></script>
+	</body>
+</html>

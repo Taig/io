@@ -1,0 +1,22 @@
+#portfolio
+	.description
+		+stretched-background( $color-highlight )
+		:color $color-neutral
+
+	.projects
+		li
+			:margin-top $spacing
+
+			&:first-child
+				:margin-top 0
+
+		img
+			:float left
+			:padding 0 $spacing $spacing 0
+			:width 50%
+
+		p
+			:text-align justify
+
+		.button
+			:margin-top $spacing

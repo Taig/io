@@ -1,0 +1,50 @@
+body > footer
+	+font-size( 18px )
+	+stretched-background( $color-main )
+	:color $color-neutral
+	:font-weight 300
+	:position relative
+
+	header
+		+absolute( $left: 25% )
+		:text-align center
+		:width 50%
+
+		.logo:before
+			+font-size( 100px, 40px )
+
+	h2
+		:margin-bottom $spacing * 0.25
+
+	h3
+		+font-size( 20px )
+
+	h4
+		+font-size( 24px )
+		:margin-bottom $spacing * 0.25
+
+	a
+		&:not( .disabled ):hover
+			:color $color-neutral
+
+		&.disabled
+			:color rgba( $color-highlight, 0.3 )
+
+	> ul > li
+		:display inline-block
+		:vertical-align top
+		:width 25%
+
+		li
+			:margin-top $spacing * 0.125
+
+			&:first-child
+				:margin-top 0
+
+	.socials
+		:margin-left 50%
+		:text-align right
+
+	aside
+		:margin-top $spacing * 2
+		:text-align center

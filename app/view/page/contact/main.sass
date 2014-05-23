@@ -1,0 +1,126 @@
+#contact
+	.form
+		:padding-bottom 0
+
+		form
+			:margin-bottom $spacing
+
+		fieldset
+			+stretched-background( $color-highlight )
+			:color $color-neutral
+			:margin-top $spacing * 0.5
+			:padding 0 0 $spacing * 0.5 0
+
+			&:first-child
+				:margin-top 0
+
+		label
+			:display inline-block
+			:font-weight 300
+			:padding rem( 43px ) rem( 24px ) 0 0
+			:text-align right
+			:text-transform uppercase
+			:width 10%
+
+		input, textarea
+			+font-size( 20px )
+			+placeholder
+				:color rgba( $color-main, 0.6 )
+				:font-family $font-family-headline
+				:font-weight 300
+				:text-transform uppercase
+			:border 2px solid transparent
+			:color $color-main
+			:float right
+			:font-family $font-family-headline
+			:margin $spacing * 0.5 10% 0 0
+			:outline none
+			:padding rem( 14px ) rem( 10px )
+			:width 80%
+
+			&[disabled]
+				:color rgba( $color-main, 0.6 )
+				:font-weight 300
+				:text-transform uppercase
+
+			&:focus
+				:border-color $color-main
+
+		textarea
+			:height rem( 350px )
+			:resize none
+
+		.button
+			:border-color $color-neutral
+			:color $color-neutral
+			:margin-top $spacing * 0.5
+
+			&:before
+				:background-color $color-neutral
+
+			&:hover
+				:color $color-main
+
+	.legal
+		address
+			:height rem( 700px )
+			:margin-bottom $spacing
+			:position relative
+
+			&:before
+				+absolute( 0, -9999px, 0, -9999px )
+				:background url( '../image/map.png' ) center center no-repeat
+				:content ''
+				:z-index -1
+
+			a
+				+relative( $top: 30% )
+				:background-color $color-neutral
+				:box-shadow 2px 2px $color-shadow
+				:color $color-main
+				:display inline-block
+				:margin 0 auto
+				:padding $spacing * 0.5 $spacing * 1.5
+				:transition color $transition-duration $transition-effect, background-color $transition-duration $transition-effect, box-shadow $transition-duration $transition-effect
+
+				&:before, &:after
+					+absolute( $top: 100%, $left: 50% )
+					:border-left 25px solid transparent
+					:border-right 25px solid transparent
+					:border-top-style solid
+					:border-top-width 25px
+					:content ''
+					:height 0
+					:transition border-top-color $transition-duration $transition-effect
+					:width 0
+
+				&:before
+					:border-top-color $color-shadow
+					:margin-left -23px
+					:margin-top 2px
+
+				&:after
+					:border-top-color $color-neutral
+					:margin-left -25px
+
+				&:hover
+					:background-color $color-highlight
+					:box-shadow 2px 2px transparent
+					:color $color-neutral
+
+					&:before
+						:border-top-color transparent
+
+					&:after
+						:border-top-color $color-highlight
+
+			span
+				:display block
+
+			.city
+				:font-weight 700
+				:margin-top $spacing * 0.25
+
+		p
+			:column-count 2
+			:text-align justify

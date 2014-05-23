@@ -1,0 +1,10 @@
+/project/target
+/logs
+/target
+/node_modules
+/.sass-cache
+
+/public/javascript/main.js
+/public/javascript/main.min.js
+/public/stylesheet/main.css
+/public/stylesheet/main.min.css

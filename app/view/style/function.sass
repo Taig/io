@@ -1,0 +1,11 @@
+/*
+ * Convert a px unit to em (respecting a base size that defaults to 16px)
+ */
+@function em( $px, $base: 16px ) 
+	@return $px / $base * 1em
+
+@function rem( $px, $base: 16px )
+	@return strip-unit( em( $px, $base ) ) * 1rem
+
+@function strip-unit( $value )
+	@return $value / ( $value * 0 + 1 )

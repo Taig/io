@@ -1,0 +1,81 @@
+@view.html.index( "portfolio" ) {
+	<section class="description">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aperiam asperiores atque aut cupiditate
+			ducimus eaque ex inventore laboriosam modi, molestiae molestias mollitia, neque perferendis praesentium quasi
+			quos ratione ut!
+		</p>
+	</section>
+
+	<section class="projects">
+		<ul>
+			<li>
+				<h3 class="icon hangouts">Web</h3>
+				<ul>
+					<li>
+						@project(
+							title = "CUPP Computing",
+							href = "#",
+							description = """
+								|Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum
+								|fugiat itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus
+								|ducimus iusto, obcaecati odit provident quos voluptatem?
+								|
+								|Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum
+								|fugiat itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus
+								|ducimus iusto, obcaecati odit provident quos voluptatem?
+							""".stripMargin,
+							image = Some( "project.png" )
+						)
+					</li>
+					<li>
+						<h4><a href="#">ASG</a></h4>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum fugiat
+							itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus ducimus iusto,
+							obcaecati odit provident quos voluptatem?
+						</p>
+					</li>
+					<li>
+						<h4><a href="#">reluxe.me</a></h4>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum fugiat
+							itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus ducimus iusto,
+							obcaecati odit provident quos voluptatem?
+						</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3 class="icon hangouts">Mobile</h3>
+
+				<ul>
+					<li>
+						<h4><a href="#">9GAGr</a></h4>
+
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum fugiat
+							itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus ducimus iusto,
+							obcaecati odit provident quos voluptatem?
+						</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3 class="icon hangouts"><abbr title="Open Source Software">OSS</abbr></h3>
+
+				<ul>
+					<li>
+						<h4><a href="#">Communicator</a></h4>
+
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolor esse eum fugiat
+							itaque, iure libero minus nostrum reprehenderit vel! Architecto at doloribus ducimus iusto,
+							obcaecati odit provident quos voluptatem?
+						</p>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+}

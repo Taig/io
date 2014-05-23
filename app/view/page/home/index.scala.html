@@ -1,0 +1,78 @@
+@view.html.index( "home" ) {
+	<section class="teaser">
+		<header>
+			<h2>Hi, my name is Nik</h2>
+			<h3>I'm a Software Developer &<br /> Computer Science student from Berlin</h3>
+		</header>
+	</section>
+
+	<section class="about-me">
+		<header>
+			<h2>About me</h2>
+		</header>
+
+		<p>
+			One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a
+			horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown
+			belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and
+			seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of
+			him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room,
+			a proper human room although a little too small, lay peacefully between its four familiar walls. A collection
+			of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a
+			picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It
+			showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered
+			the whole of her lower arm towards the viewer.
+		</p>
+
+		@view.widget.button.html.index( "Portfolio", controller.routes.Application.portfolio().toString )
+	</section>
+
+	<section class="quote">
+		<blockquote>
+			<p>
+				Most good programmers do programming not because they expect to get paid or get adulation by the public, but
+				because it is fun to program.
+			</p>
+
+			<footer>Linus Torvals</footer>
+		</blockquote>
+	</section>
+
+	<section class="tools">
+		<header>
+			<h2>The good part</h2>
+			<h3>Technologies I love</h3>
+		</header>
+
+		<ul>
+			<li><a href="#" class="icon sass" target="_blank">SASS</a></li>
+			<li><a href="#" class="icon playframework" target="_blank">Play&shy;Framework</a></li>
+			<li><a href="#" class="icon coffeescript" target="_blank">Coffee&shy;Script</a></li>
+			<li><a href="#" class="icon android" target="_blank">Android</a></li>
+			<li><a href="#" class="icon bitcoin" target="_blank">Bitcoin</a></li>
+			<li><a href="#" class="icon github" target="_blank">GitHub</a></li>
+			<li><a href="#" class="icon jquery" target="_blank">jQuery</a></li>
+			<li><a href="#" class="icon laravel" target="_blank">Laravel</a></li>
+			<li><a href="#" class="icon svg" target="_blank">SVG</a></li>
+			<li><a href="#" class="icon html5" target="_blank">HTML5</a></li>
+			<li><a href="#" class="icon css3" target="_blank">CSS3</a></li>
+			<li><a href="#" class="icon scala" target="_blank">Scala</a></li>
+			<li><a href="#" class="icon sass" target="_blank">SASS</a></li>
+			<li><a href="#" class="icon playframework" target="_blank">Play&shy;Framework</a></li>
+			<li><a href="#" class="icon coffeescript" target="_blank">Coffee&shy;Script</a></li>
+		</ul>
+	</section>
+
+	<section class="contact">
+		<header>
+			<h2>Get in touch</h2>
+			<h3>Drop me a line or stalk me on the web</h3>
+		</header>
+
+		<ul>
+			<li><a href="#" class="icon mail" title="E-Mail">Write me an email</a></li>
+			<li><a href="#" class="icon hangouts" title="Google Hangouts">Chat with me on Google Hangouts</a></li>
+			<li><a href="#" class="icon twitter" title="Twitter">Send me a Tweet</a></li>
+		</ul>
+	</section>
+}

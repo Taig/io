@@ -1,0 +1,62 @@
+/*
+ * Calculate a given pixel font-size in rem and supply a pixel fallback
+ *
+ * Also add a line-height in the same fashion; multiplying the given font-size with the line-height argument. Pass
+ * false to omit the line-height.
+ */
+=font-size( $value, $line-height: $value * $line-height-multiplier, $base: 16 )
+	:font-size $value
+
+	@if unit( $value ) == 'px'
+		:font-size rem( $value, $base )
+
+	@if $line-height != false
+		+line-height( $line-height, $base )
+
+/*
+ * Calculate a given pixel line-height in rem and supply a pixel fallback
+ */
+=line-height( $value, $base: 16 )
+	:line-height $value
+
+	@if unit( $value ) == 'px'
+		:line-height rem( $value, $base )
+
+=placeholder
+	&::-webkit-input-placeholder
+		@content
+	
+	&:-moz-placeholder
+		@content
+	
+	&::-moz-placeholder
+		@content
+	
+	&:-ms-input-placeholder
+		@content
+
+=stretched-background( $color )
+	:position relative
+	:z-index 0
+
+	&:before
+		+absolute( 0, -9999px, 0, -9999px )
+		:background-color $color
+		:content ''
+		:z-index -1
+
+=position( $position, $top: false, $right: false, $bottom: false, $left: false )
+	:position $position
+
+	@each $position, $value in ( top: $top, right: $right, bottom: $bottom, left: $left )
+		@if $value != false
+			:#{$position} $value
+
+=absolute( $top: false, $right: false, $bottom: false, $left: false )
+	+position( absolute, $top, $right, $bottom, $left )
+
+=fixed( $top: false, $right: false, $bottom: false, $left: false )
+	+position( fixed, $top, $right, $bottom, $left )
+
+=relative( $top: false, $right: false, $bottom: false, $left: false )
+	+position( relative, $top, $right, $bottom, $left )

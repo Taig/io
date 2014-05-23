@@ -1,0 +1,75 @@
+*
+	:box-sizing border-box
+
+html, body
+	:overflow-x hidden
+
+a, button
+	:transition color $transition-duration $transition-effect, background-color $transition-duration $transition-effect
+
+a
+	:color $color-highlight
+	:text-decoration none
+
+	&.disabled
+		:background-color transparent
+		:color rgba( $color-main, 0.6 )
+		:cursor default
+
+button
+	:background none
+	:cursor pointer
+
+h1, h2, h3, h4
+	@extend %font-headline
+
+h1
+	+font-size( $font-size * 2.5 )
+	:font-weight 700
+
+h2
+	+font-size( $font-size * 2 )
+	:font-weight 500
+
+h3, h4
+	:font-weight 300
+
+h3
+	+font-size( $font-size * 1.5 )
+
+h4
+	+font-size( $font-size * 1.2 )
+
+body
+	@extend %font-body
+	+font-size( $font-size )
+	:color $color-main
+	:margin-top $header-height
+
+	> section, > footer
+		:margin 0 auto
+		:max-width rem( 1000px )
+		:padding $spacing
+
+	> section
+		+stretched-background( $color-neutral )
+		:text-align center
+
+		> header
+			:margin-bottom $spacing
+
+			&:after
+				+font-size( 60px, false )
+				:content '\e600'
+				:display block
+				:font-family $font-icon
+
+		h4
+			:margin-bottom $spacing * 0.75
+
+		p
+			:hyphens auto
+			:margin-bottom $spacing
+
+			&:last-of-type
+				:margin-bottom 0
