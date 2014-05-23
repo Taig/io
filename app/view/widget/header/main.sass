@@ -1,0 +1,71 @@
+body > header
+	+fixed( $top: 0, $right: 0, $left: 0 )
+	:background-color $color-neutral
+	:height $header-height
+	:padding 0 $spacing
+	:z-index 10
+
+	/*
+	 * Header shadow
+	 */
+	&:after
+		+absolute( $top: 100%, $right: 0, $left: 0 )
+		:background rgba( $color-main, 0.05 )
+		:content ''
+		:height 0
+		:transition height $transition-duration $transition-effect
+
+	&.shaded
+		&:after
+			:height rem( 8px )
+
+	/*
+	 * Header logo
+	 */
+	h1
+		:float left
+
+		.logo
+			:color $color-main
+
+			&:before
+				+font-size( 120px, false )
+				:line-height $header-height
+
+			&:hover
+				:color $color-highlight
+
+	/*
+	 * Header navigation
+	 */
+	nav
+		:float right
+
+		&, ul, li, a
+			:height 100%
+
+		li, a
+			:display inline-block
+
+		a
+			+font-size( 22px, false )
+			:color $color-main
+			:font-family $font-family-headline
+			:padding 0 $spacing * 0.5
+			:position relative
+			:line-height $header-height
+			:text-transform uppercase
+
+			&:not( .disabled )
+				&:before
+					+absolute( 0, 0, 100%, 0 )
+					:background-color $color-main
+					:content ''
+					:transition bottom $transition-duration $transition-effect
+					:z-index -1
+
+				&:hover
+					:color $color-neutral
+
+					&:before
+						:bottom 0

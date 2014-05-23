@@ -1,0 +1,125 @@
+#home
+	:margin-top 900px
+	:margin-top 100vh
+
+	.teaser
+		+fixed( $header-height, 0, 0, 0 )
+		:background url( '../image/portrait.jpg' ) right center no-repeat
+		:background-size cover
+		:color $color-neutral
+		:height 900px
+		:height 100vh
+		:height calc( 100vh - 75px )
+		:max-width none
+
+		&:before
+			:content none
+
+		/*
+		 * Vertical alignment hack
+		 */
+		&:after, header
+			:display inline-block
+			:vertical-align middle
+
+		&:after
+			:content ''
+			:height 100%
+
+		header
+			:position relative
+			:text-shadow rem( 2px ) rem( 2px ) rgba( black, 0.75 )
+
+			&:after
+				:content none
+
+		h2
+			+font-size( 54px )
+			:font-weight 700
+
+			&:after
+				+font-size( 475px, false )
+				:content '\e605'
+				:display block
+				:font-weight normal
+				:font-family $font-icon
+
+	.about-me
+		p
+			:column-count 2
+			:column-gap $spacing
+			:text-align justify
+
+		.button
+			:margin-top $spacing
+
+	.quote
+		@extend %font-headline
+		+stretched-background( $color-highlight )
+		:color color-neutral
+
+		blockquote
+			:font-weight 300
+			:margin 0 $spacing * 3
+			:position relative
+
+			&:before
+				+absolute( $top: rem( 20px ), $left: rem( -45px ) )
+				+font-size( 30px, false )
+				:content '\e606'
+				:font-family $font-icon
+
+		p
+			+font-size( $font-size * 1.5 )
+			:text-align left
+
+		footer
+			:margin-top $spacing * 0.5
+			:text-align right
+
+			&:before
+				:content '— '
+
+	.tools
+		:padding-bottom 0
+
+		li
+			:display inline-block
+			:margin-bottom $spacing
+			:padding 0 $spacing * 0.25
+			:vertical-align top
+			:width 20%
+
+		a
+			@extend %font-headline
+			+font-size( $font-size )
+			:color $color-main
+			:display block
+			:font-weight 700
+
+			&:before
+				+font-size( 125px, false )
+				:display block
+				:margin-bottom $spacing * 0.25
+
+			&:hover
+				:color $color-highlight
+
+	.contact
+		li
+			:display inline-block
+			:margin-left $spacing * 0.5
+
+			&:first-child
+				:margin-left 0
+
+		a
+			:color $color-main
+			:display inline-block
+			:padding $spacing * 0.25
+
+			&:before
+				+font-size( 60px, false )
+
+			&:hover
+				:color $color-highlight

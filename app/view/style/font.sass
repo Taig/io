@@ -1,0 +1,20 @@
+@each $weight in 100, 200, 500, 900
+	@font-face
+		:font-family $font-headline
+		:font-style normal
+		:font-weight $weight
+		:src local( $font-headline ), url( '../font/jura/#{$weight}.woff' ) format( 'woff' )
+
+@each $weight in 300, 400, 700
+	@font-face
+		:font-family $font-body
+		:font-style normal
+		:font-weight $weight
+		:src local( $font-body ), url( '../font/aleo/#{$weight}.woff' ) format( 'woff' )
+
+@font-face
+	:font-family $font-icon
+	:font-style normal
+	:font-weight normal
+	:src url( '../font/icon/font.eot' )
+	:src url( '../font/icon/font.eot?#iefixy' ) format( 'embedded-opentype' ), url( '../font/icon/font.woff' ) format( 'woff' ), url( '../font/icon/font.ttf' ) format( 'truetype' ), url( '../font/icon/font.svg#font' ) format( 'svg' )
