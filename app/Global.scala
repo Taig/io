@@ -16,7 +16,6 @@ object HTMLCompressorFilter
 			setRemoveHttpsProtocol( true )
 			setRemoveIntertagSpaces( true )
 			setRemoveQuotes( true )
-			setRemoveSurroundingSpaces( "all" )
 			setSimpleBooleanAttributes( true )
 		}
 	} )
