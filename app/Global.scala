@@ -10,10 +10,14 @@ object HTMLCompressorFilter
 	{
 		new HtmlCompressor
 		{
-			setRemoveIntertagSpaces( true )
-			setSimpleBooleanAttributes( true )
+			setCompressCss( true )
+			setCompressJavaScript( true )
 			setRemoveHttpProtocol( true )
 			setRemoveHttpsProtocol( true )
+			setRemoveIntertagSpaces( true )
+			setRemoveQuotes( true )
+			setRemoveSurroundingSpaces( "all" )
+			setSimpleBooleanAttributes( true )
 		}
 	} )
 }
