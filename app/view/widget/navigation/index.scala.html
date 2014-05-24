@@ -1,0 +1,14 @@
+@( items: ( Option[Call], String )* )
+
+<nav>
+	<ul>
+		@items.map {
+			case ( Some( url ), label ) => {
+				<li><a href="@url">@label</a></li>
+			}
+			case ( None, label ) => {
+				<li><a href="#" class="disabled">@label</a></li>
+			}
+		}
+	</ul>
+</nav>

@@ -1,15 +1,13 @@
 <header>
 	<h1>
 		<a href="@controller.routes.Application.home()" class="icon logo">
-			taig.io - Personal portfolio of Niklas Klein; Software Developer from Berlin
+			taig.io - Personal portfolio of Niklas Klein
 		</a>
 	</h1>
 
-	<nav>
-		<ul>
-			<li><a href="@controller.routes.Application.portfolio()">Portfolio</a></li>
-			<li><a class="disabled" href="#">Blog</a></li>
-			<li><a href="@controller.routes.Application.contact()">Contact</a></li>
-		</ul>
-	</nav>
+	@view.widget.navigation.html.index(
+		( Some( controller.routes.Application.portfolio() ), "Portfolio" ),
+		( None, "Blog" ),
+		( Some( controller.routes.Application.contact() ), "Contact" )
+	)
 </header>
