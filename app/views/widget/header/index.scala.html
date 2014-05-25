@@ -10,9 +10,11 @@
 		</a>
 	</h1>
 
-	@widget.navigation.index( navigation, Some( request.path ) )
+	<nav>
+		@widget.navigation.index( navigation, Some( request.path ) )
 
-	@if( subnavigation.length > 0 ) {
-		@widget.navigation.index( subnavigation, None )
-	}
+		@if( subnavigation.length > 0 ) {
+			@widget.navigation.index( subnavigation, None )
+		}
+	</nav>
 </header>

@@ -1,21 +1,19 @@
 @( items: Seq[( Option[String], String )], selection: Option[String] )
 
-<nav>
-	<ul>
-		@for( item <- items ) {
-			<li>
-				@item match {
-					case ( Some( url ), label ) if selection.isDefined && url.equals( selection.get ) => {
-						<a href="@url" class="selected">@label</a>
-					}
-					case ( Some( url ), label ) => {
-						<a href="@url">@label</a>
-					}
-					case ( None, label ) => {
-						<a href="#" class="disabled">@label</a>
-					}
+<ul>
+	@for( item <- items ) {
+		<li>
+			@item match {
+				case ( Some( url ), label ) if selection.isDefined && url.equals( selection.get ) => {
+					<a href="@url" class="selected">@label</a>
 				}
-			</li>
-		}
-	</ul>
-</nav>
+				case ( Some( url ), label ) => {
+					<a href="@url">@label</a>
+				}
+				case ( None, label ) => {
+					<a href="#" class="disabled">@label</a>
+				}
+			}
+		</li>
+	}
+</ul>
