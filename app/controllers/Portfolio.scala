@@ -5,7 +5,11 @@ import views.html.page.portfolio
 
 object Portfolio extends Page
 {
-	override val subnavigation: Seq[(Option[String], String)] = Seq()
+	override val subnavigation = Seq[(Option[String], String)](
+		( Some( "#web" ), "Web" ),
+		( Some( "#android" ), "Android" ),
+		( Some( "#open-source" ), "Open Source" )
+	)
 
 	def index = Action
 	{

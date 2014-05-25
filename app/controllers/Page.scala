@@ -4,7 +4,7 @@ import play.api.mvc.{Controller, Call}
 
 trait Page extends Controller
 {
-	implicit private def callToOptionString( call: Call ): Option[String] = Some( call.toString )
+	implicit protected def callToOptionString( call: Call ): Option[String] = Some( call.toString )
 
 	implicit protected val controller: Page = this
 
