@@ -1,10 +1,6 @@
-@(
-	id: String,
-	navigation: Seq[( Option[String], String )],
-	subnavigation: Seq[( Option[String], String )] = Seq()
-)( implicit request: Request[Any] )
+@( id: String )( implicit request: Request[Any] )
 
-@views.html.index( id, navigation, subnavigation ) {
+@views.html.index( id ) {
 	<section class="projects">
 		<ul>
 			<li>

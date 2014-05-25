@@ -1,6 +1,6 @@
 @(
 	id: String,
-	navigation: Seq[( Option[String], String )],
+	navigation: Seq[( Option[String], String )] = Navigation.main,
 	subnavigation: Seq[( Option[String], String )] = Seq(),
 	scripts: Seq[String] = Seq()
 )( content: Html )( implicit request: Request[Any] )
