@@ -12,7 +12,7 @@ object Navigation
 		Seq[( Option[String], String, Boolean )](
 			( routes.Application.portfolio(), "Portfolio", false ),
 			( None, "Blog", false ),
-			( routes.Application.portfolio(), "Contact", false )
+			( routes.Application.contact(), "Contact", false )
 		)
 	}
 }
