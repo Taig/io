@@ -1,8 +1,8 @@
 @(
 	id: String,
-	navigation: Seq[( Option[String], String, Boolean )],
-	subnavigation: Seq[( Option[String], String, Boolean )] = Seq()
-)
+	navigation: Seq[( Option[String], String )],
+	subnavigation: Seq[( Option[String], String )] = Seq()
+)( implicit request: Request[Any] )
 
 @views.html.index( id, navigation, subnavigation, scripts = Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
 	<section class="form">

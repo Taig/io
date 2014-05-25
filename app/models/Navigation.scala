@@ -9,10 +9,10 @@ object Navigation
 
 	val main =
 	{
-		Seq[( Option[String], String, Boolean )](
-			( routes.Application.portfolio(), "Portfolio", false ),
-			( None, "Blog", false ),
-			( routes.Application.contact(), "Contact", false )
+		Seq[( Option[String], String )](
+			( routes.Application.portfolio(), "Portfolio" ),
+			( None, "Blog" ),
+			( routes.Application.contact(), "Contact" )
 		)
 	}
 }

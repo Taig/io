@@ -1,4 +1,8 @@
-@( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] = Seq() )
+@(
+	id: String,
+	navigation: Seq[( Option[String], String )],
+	subnavigation: Seq[( Option[String], String )] = Seq()
+)( implicit request: Request[Any] )
 
 @views.html.index( id, navigation, subnavigation ) {
 	<section class="projects">

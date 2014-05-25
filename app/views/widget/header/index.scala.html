@@ -1,4 +1,7 @@
-@( navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] )
+@(
+	navigation: Seq[( Option[String], String )],
+	subnavigation: Seq[( Option[String], String )]
+)( implicit request: Request[Any] )
 
 <header>
 	<h1>
@@ -7,9 +10,9 @@
 		</a>
 	</h1>
 
-	@widget.navigation.index( navigation )
+	@widget.navigation.index( navigation, Some( request.path ) )
 
 	@if( subnavigation.length > 0 ) {
-		@widget.navigation.index( subnavigation )
+		@widget.navigation.index( subnavigation, None )
 	}
 </header>

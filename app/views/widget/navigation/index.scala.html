@@ -1,17 +1,17 @@
-@( items: Seq[( Option[String], String, Boolean )] )
+@( items: Seq[( Option[String], String )], selection: Option[String] )
 
 <nav>
 	<ul>
 		@for( item <- items ) {
 			<li>
 				@item match {
-					case ( Some( url ), label, selected ) if selected => {
+					case ( Some( url ), label ) if selection.isDefined && url.equals( selection.get ) => {
 						<a href="@url" class="selected">@label</a>
 					}
-					case ( Some( url ), label, _ ) => {
+					case ( Some( url ), label ) => {
 						<a href="@url">@label</a>
 					}
-					case ( None, label, _ ) => {
+					case ( None, label ) => {
 						<a href="#" class="disabled">@label</a>
 					}
 				}

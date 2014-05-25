@@ -1,9 +1,9 @@
 @(
 	id: String,
-	navigation: Seq[( Option[String], String, Boolean )],
-	subnavigation: Seq[( Option[String], String, Boolean )] = Seq(),
+	navigation: Seq[( Option[String], String )],
+	subnavigation: Seq[( Option[String], String )] = Seq(),
 	scripts: Seq[String] = Seq()
-)( content: Html )
+)( content: Html )( implicit request: Request[Any] )
 
 <!DOCTYPE html>
 <html lang="en">

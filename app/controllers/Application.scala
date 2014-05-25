@@ -9,16 +9,16 @@ object Application extends Controller
 {
 	def contact = Action
 	{
-		Ok( html.page.contact.index( "contact", Navigation.main ) )
+		implicit request => Ok( html.page.contact.index( "contact", Navigation.main ) )
 	}
 
 	def home = Action
 	{
-		Ok( html.page.home.index( "home", Navigation.main ) )
+		implicit request => Ok( html.page.home.index( "home", Navigation.main ) )
 	}
 
 	def portfolio = Action
 	{
-		Ok( html.page.portfolio.index( "portfolio", Navigation.main ) )
+		implicit request => Ok( html.page.portfolio.index( "portfolio", Navigation.main ) )
 	}
 }
