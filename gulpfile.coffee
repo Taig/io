@@ -22,7 +22,7 @@ path =
 		javascript: 'public/javascript'
 		stylesheet: 'public/stylesheet'
 	source:
-		app: 'app/view'
+		app: 'app/views'
 		asset: 'asset'
 
 gulp.task 'script', ->
