@@ -1,6 +1,6 @@
 home = $ '#home'
 
-if( home.length )
+if home.length
 	teaser = home.find '.teaser'
 	header = teaser.find 'header'
 	offset = home.find( '.about-me' ).offset().top - home.find( '> header' ).outerHeight()
