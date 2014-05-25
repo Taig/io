@@ -1,4 +1,4 @@
-@( id: String )( implicit request: Request[Any] )
+@( id: String )( implicit page: Page, request: Request[Any] )
 
 @views.html.index( id, scripts = Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
 	<section class="form">

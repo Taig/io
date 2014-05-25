@@ -1,4 +1,4 @@
-@( id: String )( implicit request: Request[Any] )
+@( id: String )( implicit page: Page, request: Request[Any] )
 
 @views.html.index( id ) {
 	<section class="teaser">

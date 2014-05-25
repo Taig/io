@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 import views.html.page.home
 
-object Home extends Controller
+object Home extends Page
 {
 	def index = Action
 	{

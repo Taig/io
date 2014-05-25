@@ -1,9 +1,4 @@
-@(
-	id: String,
-	navigation: Seq[( Option[String], String )] = Navigation.main,
-	subnavigation: Seq[( Option[String], String )] = Seq(),
-	scripts: Seq[String] = Seq()
-)( content: Html )( implicit request: Request[Any] )
+@( id: String, scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +12,7 @@
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
 	</head>
 	<body id="@id">
-		@widget.header.index( navigation, subnavigation )
+		@widget.header.index( page.navigation, page.subnavigation )
 
 		@content
 

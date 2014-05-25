@@ -3,7 +3,7 @@ package controllers
 import play.api.mvc._
 import views.html.page.contact
 
-object Contact extends Controller
+object Contact extends Page
 {
 	def index = Action
 	{

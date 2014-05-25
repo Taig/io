@@ -1,3 +1,5 @@
+@()( implicit page: Page )
+
 <footer>
 	<address>
 		<h2><a href="#" class="icon logo">taig.io</a></h2>
@@ -8,7 +10,7 @@
 		<li>
 			<h4>taig.io</h4>
 			@widget.navigation.index(
-				( Some( routes.Home.index().toString() ), "Niklas Klein" ) +: Navigation.main,
+				( Some( routes.Home.index().toString() ), "Niklas Klein" ) +: page.navigation,
 				selection = None
 			)
 		</li>
