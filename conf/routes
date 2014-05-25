@@ -1,5 +1,5 @@
-GET		/							controllers.Application.home
-GET		/contact					controllers.Application.contact
-GET		/portfolio					controllers.Application.portfolio
+GET		/							controllers.Home.index
+GET		/contact					controllers.Contact.index
+GET		/portfolio					controllers.Portfolio.index
 
 GET		/asset/*file				controllers.Assets.at( path="/public", file )
