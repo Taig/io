@@ -6,7 +6,7 @@ concat = require 'gulp-concat'
 filter = require 'gulp-filter'
 insert = require 'gulp-insert'
 minify = require 'gulp-minify-css'
-plumber = require 'gulp-plumber'
+plumb = require 'gulp-plumber'
 prefix = require 'gulp-autoprefixer'
 rename = require 'gulp-rename'
 reload = require 'gulp-livereload'
@@ -81,6 +81,7 @@ gulp.task 'style', ->
 			"#{path.source.app}/**/*.sass"
 		]
 		.pipe concat 'main.sass'
+		.pipe plumb()
 		.pipe sass()
 		.on 'error', (error) -> console.log( error )
 		.pipe prefix()
