@@ -47,9 +47,12 @@ body
 	:margin-top $header-height
 
 	> section, > footer
-		:margin 0 auto
-		:max-width rem( 1000px )
-		:padding $spacing
+		:padding
+			:bottom $spacing
+			:top $spacing
+
+	> section > *, > footer
+		@extend %content-width
 
 	> section
 		+stretched-background( $color-neutral )

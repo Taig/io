@@ -62,64 +62,55 @@
 				:color $color-main
 
 	.legal
-		address
-			:height rem( 700px )
+		#map
+			@extend %full-height
+			@extend %full-width
 			:margin-bottom $spacing
+			:overflow hidden
 			:position relative
 
-			&:before
-				+absolute( 0, -9999px, 0, -9999px )
-				:background url( '../image/map.png' ) center center no-repeat
-				:content ''
-				:z-index -1
+			> div
+				:height 100%
 
-			a
-				+relative( $top: 30% )
+			noscript img
+				+absolute( -9999px, -9999px, -9999px, -9999px )
+				:margin auto
+
+			#address
+				+absolute( $bottom: 50%, $left: 50% )
 				:background-color $color-neutral
-				:box-shadow 2px 2px $color-shadow
 				:color $color-main
-				:display inline-block
-				:margin 0 auto
+				:margin-left rem( -150px )
 				:padding $spacing * 0.5 $spacing * 1.5
 				:transition color $transition-duration $transition-effect, background-color $transition-duration $transition-effect, box-shadow $transition-duration $transition-effect
+				:width rem( 300px )
 
-				&:before, &:after
+				&:after
 					+absolute( $top: 100%, $left: 50% )
 					:border-left 25px solid transparent
 					:border-right 25px solid transparent
+					:border-top-color $color-neutral
 					:border-top-style solid
 					:border-top-width 25px
 					:content ''
 					:height 0
+					:margin-left -25px
 					:transition border-top-color $transition-duration $transition-effect
 					:width 0
 
-				&:before
-					:border-top-color $color-shadow
-					:margin-left -23px
-					:margin-top 2px
-
-				&:after
-					:border-top-color $color-neutral
-					:margin-left -25px
-
 				&:hover
 					:background-color $color-highlight
-					:box-shadow 2px 2px transparent
 					:color $color-neutral
-
-					&:before
-						:border-top-color transparent
 
 					&:after
 						:border-top-color $color-highlight
 
-			span
-				:display block
+				span
+					:display block
 
-			.city
-				:font-weight 700
-				:margin-top $spacing * 0.25
+				.city
+					:font-weight 700
+					:margin-top $spacing * 0.25
 
 		p
 			:column-count 2

@@ -10,8 +10,6 @@ object HTMLCompressorFilter
 	{
 		new HtmlCompressor
 		{
-			setCompressCss( true )
-			setCompressJavaScript( true )
 			setRemoveHttpProtocol( true )
 			setRemoveHttpsProtocol( true )
 			setRemoveIntertagSpaces( true )

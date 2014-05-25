@@ -14,3 +14,23 @@
 %font-headline
 	:font-family $font-family-headline
 	:text-transform uppercase
+
+%content-width
+	:margin
+		:left auto
+		:right auto
+	:max-width rem( 1000px )
+	:padding
+		:left $spacing
+		:right $spacing
+
+%full-width
+	:max-width none
+	:padding
+		:left 0
+		:right 0
+
+%full-height
+	:height $full-height
+	:height 100vh
+	:height unquote( 'calc( 100vh - #{$header-height} )' )
