@@ -2,11 +2,9 @@ import play.api.mvc.WithFilters
 import com.googlecode.htmlcompressor.compressor.HtmlCompressor
 import com.mohiva.play.htmlcompressor.HTMLCompressorFilter
 
-object Global extends WithFilters( HTMLCompressorFilter() )
-
-object HTMLCompressorFilter
+object Global extends WithFilters(
 {
-	def apply() = new HTMLCompressorFilter(
+	new HTMLCompressorFilter(
 	{
 		new HtmlCompressor
 		{
@@ -17,4 +15,4 @@ object HTMLCompressorFilter
 			setSimpleBooleanAttributes( true )
 		}
 	} )
-}
+} )

@@ -2,14 +2,14 @@
 
 <header>
 	<h1>
-		<a href="@controller.routes.Application.home()" class="icon logo">
+		<a href="@routes.Application.home()" class="icon logo">
 			taig.io - Personal portfolio of Niklas Klein
 		</a>
 	</h1>
 
-	@view.widget.navigation.html.index( navigation )
+	@widget.navigation.index( navigation )
 
 	@if( subnavigation.length > 0 ) {
-		@view.widget.navigation.html.index( subnavigation )
+		@widget.navigation.index( subnavigation )
 	}
 </header>

@@ -1,6 +1,6 @@
 @( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] = Seq() )
 
-@view.html.index( id, navigation, subnavigation ) {
+@views.html.index( id, navigation, subnavigation ) {
 	<section class="teaser">
 		<header>
 			<h2>Hi, my name is Nik</h2>
@@ -26,7 +26,7 @@
 			the whole of her lower arm towards the viewer.
 		</p>
 
-		@view.widget.button.html.index( "Portfolio", controller.routes.Application.portfolio().toString )
+		@widget.button.index( "Portfolio", routes.Application.portfolio().toString )
 	</section>
 
 	<section class="quote">

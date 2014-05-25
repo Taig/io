@@ -1,6 +1,6 @@
-package model
+package models
 
-import controller.routes
+import controllers.routes
 import play.api.mvc.Call
 
 object Navigation

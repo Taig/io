@@ -12,11 +12,11 @@
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
 	</head>
 	<body id="@id">
-		@view.widget.header.html.index( navigation, subnavigation )
+		@widget.header.index( navigation, subnavigation )
 
 		@content
 
-		@view.widget.footer.html.index()
+		@widget.footer.index()
 
 		<script src="@routes.Assets.at( "javascript/jquery-2.1.0.min.js" )"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
