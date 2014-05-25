@@ -1,4 +1,6 @@
-@view.html.index( "portfolio" ) {
+@( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] = Seq() )
+
+@view.html.index( id, navigation, subnavigation ) {
 	<section class="projects">
 		<ul>
 			<li>

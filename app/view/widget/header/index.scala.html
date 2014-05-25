@@ -1,3 +1,5 @@
+@( navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] )
+
 <header>
 	<h1>
 		<a href="@controller.routes.Application.home()" class="icon logo">
@@ -5,9 +7,9 @@
 		</a>
 	</h1>
 
-	@view.widget.navigation.html.index(
-		( Some( controller.routes.Application.portfolio() ), "Portfolio" ),
-		( None, "Blog" ),
-		( Some( controller.routes.Application.contact() ), "Contact" )
-	)
+	@view.widget.navigation.html.index( navigation )
+
+	@if( subnavigation.length > 0 ) {
+		@view.widget.navigation.html.index( subnavigation )
+	}
 </header>

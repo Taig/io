@@ -1,4 +1,6 @@
-@view.html.index( "contact" ) {
+@( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] = Seq() )
+
+@view.html.index( id, navigation, subnavigation ) {
 	<section class="form">
 		<header>
 			<h2>Send me an email</h2>

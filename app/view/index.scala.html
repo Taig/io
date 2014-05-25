@@ -1,4 +1,4 @@
-@( page: String )( content: Html )
+@( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] )( content: Html )
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,8 @@
 
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
 	</head>
-	<body id="@page">
-		@view.widget.header.html.index()
+	<body id="@id">
+		@view.widget.header.html.index( navigation, subnavigation )
 
 		@content
 

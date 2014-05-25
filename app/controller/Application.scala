@@ -2,21 +2,23 @@ package controller
 
 import play.api._
 import play.api.mvc._
+import view.page
+import model.Navigation
 
 object Application extends Controller
 {
 	def contact = Action
 	{
-		Ok( view.page.contact.html.index() )
+		Ok( page.contact.html.index( "contact", Navigation.main ) )
 	}
 
 	def home = Action
 	{
-		Ok( view.page.home.html.index() )
+		Ok( page.home.html.index( "home", Navigation.main ) )
 	}
 
 	def portfolio = Action
 	{
-		Ok( view.page.portfolio.html.index() )
+		Ok( page.portfolio.html.index( "portfolio", Navigation.main ) )
 	}
 }
