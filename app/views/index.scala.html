@@ -1,4 +1,9 @@
-@( id: String, navigation: Seq[( Option[String], String, Boolean )], subnavigation: Seq[( Option[String], String, Boolean )] )( content: Html )
+@(
+	id: String,
+	navigation: Seq[( Option[String], String, Boolean )],
+	subnavigation: Seq[( Option[String], String, Boolean )] = Seq(),
+	scripts: Seq[String] = Seq()
+)( content: Html )
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +23,8 @@
 
 		@widget.footer.index()
 
-		<script src="@routes.Assets.at( "javascript/jquery-2.1.0.min.js" )"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-		<script src="@routes.Assets.at( "javascript/main.js" )"></script>
+		@for( script <- routes.Assets.at( "javascript/jquery-2.1.0.min.js" ) +: scripts :+ routes.Assets.at( "javascript/main.js" ) ) {
+			<script src="@script"></script>
+		}
 	</body>
 </html>
