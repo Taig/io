@@ -7,12 +7,10 @@
 	<ul>
 		<li>
 			<h4>taig.io</h4>
-			<ul>
-				<li><a href="@routes.Home.index()">Niklas Klein</a></li>
-				<li><a href="@routes.Portfolio.index()">Portfolio</a></li>
-				<li><a href="#" class="disabled">Blog</a></li>
-				<li><a href="@routes.Contact.index()">Contact</a></li>
-			</ul>
+			@widget.navigation.index(
+				( Some( routes.Home.index().toString() ), "Niklas Klein" ) +: Navigation.main,
+				selection = None
+			)
 		</li>
 		<li class="socials">
 			<h4>On the web</h4>
