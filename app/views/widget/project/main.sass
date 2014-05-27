@@ -1,0 +1,66 @@
+article.project
+	:display table
+	:width 100%
+
+	.teaser, aside
+		:display table-cell
+		:vertical-align middle
+		:width 50%
+
+	.teaser
+		:padding $spacing
+		:position relative
+		:z-index 1
+
+		&:before
+			+absolute( 0, 0, 0, -9999px )
+			:content ''
+			:z-index -1
+
+	aside
+		> .tile
+			:position relative
+			:width 50%
+
+			/*
+			 * Maintain 1:1 aspect ratio
+			 */
+			&:before
+				:content ''
+				:display block
+				:padding-top 100%
+
+			/*
+			 * Show color tile
+			 */
+			&:after
+				+absolute( $top: 0 )
+				:content ''
+				:height 100%
+
+			> *
+				+absolute( 0, 0, 0, 0 )
+
+			&:nth-child( 1 )
+				:margin-left 50%
+
+				&:after
+					:right 100%
+					:width 100%
+
+			&:nth-child( 2 )
+				&:after
+					:left 100%
+					:right -9999px
+
+	.slider
+		:position relative
+
+		li
+			+absolute( 0 )
+			:opacity 0
+			:transition opacity $transition-duration * 10 $transition-effect
+
+			&.active
+				:opacity 1
+				:position static

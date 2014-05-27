@@ -33,9 +33,9 @@ gulp.task 'script', ->
 		], { read: false }
 		.pipe clean( { force: true } )
 
-	# Skip empty files - otherwise the next call to wrap will create erroneous code; also skip files in the coffeescript
+	# Skip empty files - otherwise the next call to wrap will create erroneous code; also skip files in the script
 	# folder as they should be globally available and therefore not be wrapped in an anonymous function
-	wrapFilter = filter ( file ) -> file.stat.size > 0 and not /\/coffeescript\//.test file.base
+	wrapFilter = filter ( file ) -> file.stat.size > 0 and not /\/script\//.test file.base
 
 	gulp
 		.src [

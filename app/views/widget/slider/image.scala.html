@@ -1,0 +1,3 @@
+@( images: ( String, String )* )
+
+@index( images.map { case ( path, alt ) => Html( s"""<img src="${path}" alt="${alt}" />""" ) }: _* )

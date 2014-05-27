@@ -1,0 +1,10 @@
+@( content: Html* )
+
+@{ require( content.length > 0 ) }
+
+<ul class="slider">
+	<li class="active">@content.head</li>
+	@content.tail.map { slide =>
+		<li>@slide</li>
+	}
+</ul> 
