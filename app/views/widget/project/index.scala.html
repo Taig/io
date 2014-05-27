@@ -1,4 +1,10 @@
-@( id: String, title: String, subtitle: String, colors: Seq[String] = Seq( "transparent" ) )( body: Html )( tile1: Html )( tile2: Html )
+@(
+	id: String,
+	title: String,
+	subtitle: String,
+	colors: Seq[String] = Seq( "transparent" ),
+	url: Option[String] = None
+)( body: Html )( tile1: Html )( tile2: Html )
 
 @{ require( colors.length > 0 ) }
 
@@ -31,4 +37,10 @@
 			<div class="tile">@tile</div>
 		}
 	</aside>
+
+	<footer>
+		@url.map { url =>
+			<a href="@url" target="_blank">@url.replaceFirst( "https?://", "" )</a> — 2014 with MING Labs (Shanghai)
+		}
+	</footer>
 </article>
