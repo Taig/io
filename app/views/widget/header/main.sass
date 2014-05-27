@@ -79,7 +79,9 @@ body > header
 		 */
 		ul:nth-child( 2 )
 			:background-color $color-main
+			:height $header-subnavigation-height
 			:text-align center
+			:transition height $transition-duration * 1.5 $transition-effect
 
 			li
 				:width 200px
