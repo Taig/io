@@ -1,4 +1,4 @@
-@( id: String, title: String, subtitle: String, colors: Seq[String] = Seq( "transparent" ) )( tile1: Html )( tile2: Html )
+@( id: String, title: String, subtitle: String, colors: Seq[String] = Seq( "transparent" ) )( body: Html )( tile1: Html )( tile2: Html )
 
 @{ require( colors.length > 0 ) }
 
@@ -23,7 +23,7 @@
 			<h4>@subtitle</h4>
 		</header>
 
-		<a href="#">cuppcomputing.com</a>
+		@body
 	</div>
 
 	<aside>
