@@ -1,6 +1,5 @@
 body > header
 	+fixed( $top: 0, $right: 0, $left: 0 )
-	//:height $header-height
 	:z-index 10
 
 	/*
@@ -8,14 +7,9 @@ body > header
 	 */
 	&:after
 		+absolute( $top: 100%, $right: 0, $left: 0 )
-		:background rgba( $color-main, 0.05 )
+		:background rgba( $color-main, 0.08 )
 		:content ''
-		:height 0
-		:transition height $transition-duration $transition-effect
-
-	&.shaded
-		&:after
-			:height rem( 8px )
+		:height rem( 8px )
 
 	/*
 	 * Header logo
@@ -27,7 +21,7 @@ body > header
 			:color $color-main
 
 			&:before
-				+font-size( 120px, $header-height )
+				+font-size( 120px, $header-navigation-height )
 
 			&:hover
 				:color $color-highlight
@@ -56,12 +50,15 @@ body > header
 				:color $color-main
 				:padding 0 $spacing * 0.5
 				:position relative
-				:line-height $header-height
+				:line-height $header-navigation-height
 				:z-index 1
+
+				&.disabled
+					:color rgba( $color-main, 0.6 )
 
 				&:before
 					+absolute( 0, 0, 100%, 0 )
-					:background-color $color-main
+					:background-color $color-highlight
 					:content ''
 					:transition bottom $transition-duration $transition-effect
 					:z-index -1
@@ -72,27 +69,27 @@ body > header
 					&:before
 						:bottom 0
 
+				&:active, &.selected
+					&:before
+						:transition background-color $transition-duration $transition-effect
+						:background-color $color-main
+
 		/*
 		 * Sub navigation
 		 */
 		ul:nth-child( 2 )
 			:background-color $color-main
-			:position relative
 			:text-align center
-
-			&:after
-				+absolute( $top: 0, $left: 50% )
-				+triangle( 10px, white, down )
-				:content ''
-				:margin-left -5px
 
 			li
 				:width 200px
 
 			a
-				:color $color-highlight
-				:padding $spacing * 0.25 0
+				@extend %font-headline
+				:color $color-neutral
+				:line-height $header-subnavigation-height
+				:position relative
 				:font-weight 300
 
-				&:hover
-					:color $color-neutral
+				&:hover, &.selected
+					:color $color-highlight

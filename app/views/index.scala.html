@@ -11,7 +11,7 @@
 
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
 	</head>
-	<body id="@id">
+	<body id="@id" class="@{ "subnavigation".when( page.subnavigation.length > 0 ) }">
 		@widget.header.index( page.navigation, page.subnavigation )
 
 		@content

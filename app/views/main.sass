@@ -12,9 +12,9 @@ a
 	:text-decoration none
 
 	&.disabled
-		:background-color transparent
-		:color rgba( $color-main, 0.6 )
+		:color rgba( $color-highlight, 0.6 )
 		:cursor default
+		:pointer-events none
 
 button
 	:background none
@@ -44,7 +44,10 @@ body
 	@extend %font-body
 	+font-size( $font-size )
 	:color $color-main
-	:margin-top $header-height
+	:margin-top $header-navigation-height
+
+	&.subnavigation
+		:margin-top $header-navigation-height + $header-subnavigation-height
 
 	> section, > footer
 		:padding

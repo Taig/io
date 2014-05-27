@@ -12,9 +12,6 @@
 
 	<nav>
 		@widget.navigation.index( navigation, Some( request.path ) )
-
-		@if( subnavigation.length > 0 ) {
-			@widget.navigation.index( subnavigation, None )
-		}
+		@widget.navigation.index( subnavigation, None )
 	</nav>
 </header>
