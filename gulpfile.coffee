@@ -35,7 +35,7 @@ gulp.task 'script', ->
 
 	# Skip empty files - otherwise the next call to wrap will create erroneous code; also skip files in the script
 	# folder as they should be globally available and therefore not be wrapped in an anonymous function
-	wrapFilter = filter ( file ) -> file.stat.size > 0 and not /\/script\//.test file.base
+	wrapFilter = filter ( file ) -> file.stat.size > 0 and not /script/.test file.base
 
 	gulp
 		.src [
@@ -69,6 +69,8 @@ gulp.task 'style', ->
 		], { read: false }
 		.pipe clean( { force: true } )
 
+	desktopFilter = filter ( file ) -> /desktop\.sass$/.test file.path
+
 	gulp
 		.src [
 			"#{path.source.app}/style/reset.sass"
@@ -78,8 +80,15 @@ gulp.task 'style', ->
 			"#{path.source.app}/style/mixin.sass"
 			"#{path.source.app}/style/font.sass"
 			"#{path.source.app}/style/abstract.sass"
-			"#{path.source.app}/**/*.sass"
+			"#{path.source.app}/style/*.sass"
+			"#{path.source.app}/**/main.sass"
+			"#{path.source.app}/**/desktop.sass"
 		]
+		.pipe desktopFilter
+		.pipe concat 'desktop.sass'
+		.pipe insert.transform ( content ) ->
+			'@media screen and ( min-width: $breakpoint-tablet )\n\t' + content.split( '\n' ).join( '\n\t' )
+		.pipe desktopFilter.restore()
 		.pipe concat 'main.sass'
 		.pipe plumb()
 		.pipe sass()
