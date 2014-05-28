@@ -2,7 +2,9 @@
 	slides = ( $ this ).find '> *'
 	active = slides.filter '.active'
 
-	setInterval ->
-		active.removeClass 'active'
-		active = slides.eq( ( slides.index( active ) + 1 ) % slides.length ).addClass 'active'
-	, 5000
+	setTimeout ->
+		setInterval ->
+			active.removeClass 'active'
+			active = slides.eq( ( slides.index( active ) + 1 ) % slides.length ).addClass 'active'
+		, 5000
+	, 5000 * Math.random()
