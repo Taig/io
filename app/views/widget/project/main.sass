@@ -1,6 +1,6 @@
 article.project
+	:color $color-neutral
 	:display table
-	:margin-bottom $spacing
 	:position relative
 	:width 100%
 
@@ -68,10 +68,4 @@ article.project
 				:position static
 
 	footer
-		+absolute( $top: 100%, $right: -9999px, $left: -9999px )
-		+font-size( $font-size * 0.65, false )
-		:background-color $color-main
-		:font-weight 300
-		:height $spacing
-		:line-height $spacing
-		:text-shadow 1px 1px 0 rgba( 0, 0, 0, .75 )
+		:display none

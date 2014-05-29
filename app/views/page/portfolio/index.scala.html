@@ -41,6 +41,25 @@
 						): _*
 					)
 				} {
+					<img src="@routes.Assets.at( "image/project/asg/logo.png" )" alt="Logo of ASG" />
+				}
+
+				@widget.project.index(
+					"reluxe-me",
+					"reluxe.me",
+					"Resell luxury goods",
+					Seq( "#B09D6E", "#474747", "#DBDBDB" ),
+					None
+				) { } {
+					@widget.slider.image(
+						( 1 until 6 ).map(
+							x => (
+								routes.Assets.at( "image/project/cupp-computing/slide/" + x + ".png" ).toString,
+								"CUPP Computing website excerpt"
+								)
+						): _*
+					)
+				} {
 					<img src="@routes.Assets.at( "image/project/cupp-computing/logo.png" )" alt="Logo of CUPP Computing" />
 				}
 			</li>
