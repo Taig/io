@@ -2,9 +2,8 @@
 	id: String,
 	title: String,
 	subtitle: String,
-	colors: Seq[String] = Seq( "transparent" ),
-	url: Option[String] = None
-)( body: Html )( tile1: Html )( tile2: Html )
+	colors: Seq[String] = Seq( "transparent" )
+)( tile1: Html )( tile2: Html )( footer: Html )
 
 @{ require( colors.length > 0 ) }
 
@@ -23,14 +22,10 @@
 </style>
 
 <article id="@id" class="project">
-	<div class="teaser">
-		<header>
-			<h3>@title</h3>
-			<h4>@subtitle</h4>
-		</header>
-
-		@body
-	</div>
+	<header class="teaser">
+		<h3>@Html( title )</h3>
+		<h4>@Html( subtitle )</h4>
+	</header>
 
 	<aside>
 		@for( tile <- Seq( tile1, tile2 ) ) {
@@ -39,8 +34,6 @@
 	</aside>
 
 	<footer>
-		@url.map { url =>
-			<a href="@url" target="_blank">@url.replaceFirst( "https?://", "" )</a> — 2014 with MING Labs (Shanghai)
-		}
+		@footer
 	</footer>
 </article>

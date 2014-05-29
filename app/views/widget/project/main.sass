@@ -68,4 +68,10 @@ article.project
 				:position static
 
 	footer
-		:display none
+		+absolute( $bottom: $spacing, $left: 0 )
+		:font-weight 300
+		:width 50%
+		:z-index 1
+
+		p
+			+font-size( $font-size * 0.75 )

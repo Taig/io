@@ -7,12 +7,11 @@
 				<h2>Web Projects</h2>
 
 				@widget.project.index(
-					"cupp-computing",
-					"CUPP Computing",
-					"Hardware based security",
-					Seq( "#8CB4B4", "#DFDFDF" ),
-					Some( "http://cuppcomputing.com" )
-				) { } {
+					id = "cupp-computing",
+					title = "CUPP Computing",
+					subtitle = "Hardware based security",
+					colors = Seq( "#8CB4B4", "#DFDFDF" )
+				) {
 					@widget.slider.image(
 						( 1 until 5 ).map(
 							x => (
@@ -23,15 +22,17 @@
 					)
 				} {
 					<img src="@routes.Assets.at( "image/project/cupp-computing/logo.png" )" alt="Logo of CUPP Computing" />
+				} {
+					<a href="http://cuppcomputing.com" target="_blank">cuppcomputing.com</a>
+					<p>2014, <a href="http://minlabs.com" target="_blank">MING Labs</a></p>
 				}
 
 				@widget.project.index(
-					"asg",
-					"ASG",
-					"Software Solutions",
-					Seq( "#240B3A", "#BFE630", "#19827B" ),
-					Some( "http://asg.com" )
-				) { } {
+					id = "asg",
+					title = "ASG",
+					subtitle = "Software Solutions",
+					colors = Seq( "#240B3A", "#BFE630", "#19827B" )
+				) {
 					@widget.slider.image(
 						( 1 until 5 ).map(
 							x => (
@@ -42,15 +43,17 @@
 					)
 				} {
 					<img src="@routes.Assets.at( "image/project/asg/logo.png" )" alt="Logo of ASG" />
+				} {
+					<a href="http://asg.com" target="_blank">asg.com</a>
+					<p>2014, <a href="http://minlabs.com" target="_blank">MING Labs</a></p>
 				}
 
 				@widget.project.index(
-					"reluxe-me",
-					"reluxe.me",
-					"Resell luxury goods",
-					Seq( "#DBDBDB", "#474747" ),
-					None
-				) { } {
+					id = "reluxe-me",
+					title = "reluxe.me",
+					subtitle = "Resell luxury goods",
+					colors = Seq( "#DBDBDB", "#474747" )
+				) {
 					<img src="@routes.Assets.at( "image/project/reluxe.me/logo.png" )" alt="Logo of reluxe.me" />
 				} {
 					@widget.slider.image(
@@ -61,13 +64,66 @@
 								)
 						): _*
 					)
+				} {
+					<p>2013, <a href="http://minlabs.com" target="_blank">MING Labs</a></p>
+				}
+
+				@widget.project.index(
+					id = "wthg",
+					title = "where&shy;the&shy;hipsters&shy;go",
+					subtitle = "Hipster travel guide",
+					colors = Seq( "#000000", "#DE7EED", "#502D55" )
+				) {
+					<img src="@routes.Assets.at( "image/project/wthg/logo.png" )" alt="Logo of reluxe.me" />
+				} {
+					@widget.slider.image(
+						( 1 until 5 ).map(
+							x => (
+								routes.Assets.at( "image/project/wthg/slide/" + x + ".png" ).toString,
+								"reluxe.me website excerpt"
+								)
+						): _*
+					)
+				} {
+					<p>2013</p>
 				}
 			</li>
 			<li id="android">
 				<h2>Android Projects</h2>
+
+				@widget.project.index(
+					id = "nine-gagr",
+					title = "9GAGr",
+					subtitle = "9GAG client for Android",
+					colors = Seq( "#212021", "#dcdadc", "#941110" )
+				) {
+					@widget.slider.image(
+						( 1 until 7 ).map(
+							x => (
+								routes.Assets.at( "image/project/reluxe.me/slide/" + x + ".png" ).toString,
+								"reluxe.me website excerpt"
+								)
+						): _*
+					)
+				} {
+					<img src="@routes.Assets.at( "image/project/9gagr/logo.png" )" alt="Logo of reluxe.me" />
+				} {
+					<p>2012</p>
+				}
 			</li>
 			<li id="open-source">
 				<h2>Open Source Projects</h2>
+
+				@widget.project.index(
+					id = "communicator",
+					title = "Communicator",
+					subtitle = "HTTP-Library for Android",
+					colors = Seq( "#A8C41A", "#DCDCDC" )
+				) {
+					<span class="icon android">Android</span>
+				} { } {
+					<p>2012</p>
+				}
 			</li>
 		</ul>
 	</section>
