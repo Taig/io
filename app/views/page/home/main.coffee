@@ -9,5 +9,5 @@ if home.length
 		value = $( this ).scrollTop() / offset
 
 		if( 1 > value > 0 )
-			header.css 'top', value * -50
+			header.css 'top', value * -450
 			header.css 'opacity', 1 - value
