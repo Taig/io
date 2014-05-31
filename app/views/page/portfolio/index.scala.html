@@ -1,6 +1,6 @@
 @( id: String )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( id ) {
+@views.html.index( id, scripts = Seq( routes.Assets.at( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
 	<section class="projects">
 		<ul>
 			<li id="web">
@@ -124,6 +124,19 @@
 					<span class="icon android">Android</span>
 				} { } {
 					<p>2012, <a href="https://github.com/Taig/Communicator" target="_blank">GitHub</a></p>
+				}
+
+				@widget.project.index(
+					id = "jquery-spin",
+					title = "jQuery Spin",
+					subtitle = "Formatted number animation",
+					colors = Seq( "#0769AD", "#DCDCDC", "#7ACEF4" )
+				) {
+					<span class="icon jquery">jQuery</span>
+				} {
+					<span class="sample">1.000.000,00</span>
+				} {
+					<p>2014, <a href="https://github.com/Taig/jQuery-Spin" target="_blank">GitHub</a></p>
 				}
 			</li>
 		</ul>
