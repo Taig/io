@@ -1,6 +1,6 @@
 @( id: String )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( id, scripts = Seq( routes.Assets.at( "javascript/slick-1.3.6.min.js" ).toString ) ) {
+@views.html.index( id ) {
 	<section class="projects">
 		<ul>
 			<li id="web">

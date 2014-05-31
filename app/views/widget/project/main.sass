@@ -56,16 +56,17 @@ article.project
 					:right -9999px
 
 	.slider
+		:overflow hidden
 		:position relative
 
 		li
-			+absolute( 0 )
-			:opacity 0
-			:transition opacity $transition-duration * 10 $transition-effect
+			+absolute( $top: 0, $left: 0 )
+			:height 100%
+			:transition all $transition-duration * 2 $transition-effect
+			:width 100%
 
 			&.active
-				:opacity 1
-				:position static
+				:z-index 1
 
 	footer
 		+absolute( $bottom: $spacing, $left: 0 )
