@@ -12,8 +12,11 @@ if subnavigation.length
 	subnavigation.find( 'a' ).on 'click', ( event ) ->
 		event.preventDefault()
 
+		target = ( $ this ).attr 'href'
+
+		history.pushState( null, null, target );
 		$( 'html, body' )
 			.animate(
-				{ scrollTop: ( $ ( $ this ).attr 'href' ).offset().top - header.outerHeight() },
+				{ scrollTop: ( $ target ).offset().top - header.outerHeight() },
 				250
 			);
