@@ -1,9 +1,6 @@
 @( id: String )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( id, scripts = Seq(
-	routes.Assets.at( "javascript/jquery.spin-1.0.3.min.js" ).toString,
-	routes.Assets.at( "javascript/jquery.scrollstop-1.1.0.min.js" ).toString
-) ) {
+@views.html.index( id, scripts = Seq( routes.Assets.at( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
 	<section class="projects">
 		<ul>
 			<li id="web">
