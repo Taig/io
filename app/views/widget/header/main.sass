@@ -18,10 +18,9 @@ body > header
 		+absolute( $left: $spacing )
 
 		.logo
-			:color $color-main
-
-			&:before
+			+icon
 				+font-size( 120px, $header-navigation-height )
+			:color $color-main
 
 			&:hover
 				:color $color-highlight

@@ -1,9 +1,11 @@
 gulp = require 'gulp'
+path = require 'path'
 
 clean = require 'gulp-clean'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
 filter = require 'gulp-filter'
+group = require 'gulp-group-aggregate'
 insert = require 'gulp-insert'
 minify = require 'gulp-minify-css'
 plumb = require 'gulp-plumber'
@@ -16,7 +18,7 @@ watch = require 'gulp-watch'
 
 server = require( 'tiny-lr' )()
 
-path =
+asset =
 	destination:
 		image: 'public/image'
 		javascript: 'public/javascript'
@@ -28,8 +30,8 @@ path =
 gulp.task 'script', ->
 	gulp
 		.src [
-			"#{path.destination.javascript}/main.js",
-			"#{path.destination.javascript}/main.min.js"
+			"#{asset.destination.javascript}/main.js",
+			"#{asset.destination.javascript}/main.min.js"
 		], { read: false }
 		.pipe clean( { force: true } )
 
@@ -39,8 +41,8 @@ gulp.task 'script', ->
 
 	gulp
 		.src [
-			"#{path.source.app}/script/*.coffee"
-			"#{path.source.app}/**/*.coffee"
+			"#{asset.source.app}/script/*.coffee"
+			"#{asset.source.app}/**/*.coffee"
 		]
 		.pipe nonempty
 		# Prepend a space in front of every line to have proper indention for function wrapping
@@ -52,11 +54,11 @@ gulp.task 'script', ->
 		.pipe insert.wrap '( -> ( \'use strict\'\n', ' ) )()'
 		.pipe coffee { bare: true }
 		.on 'error', (error) -> console.log( error )
-		.pipe gulp.dest path.destination.javascript
+		.pipe gulp.dest asset.destination.javascript
 		.pipe reload( server )
 		.pipe uglify()
 		.pipe rename 'main.min.js'
-		.pipe gulp.dest path.destination.javascript
+		.pipe gulp.dest asset.destination.javascript
 		.pipe reload( server )
 
 	return
@@ -64,52 +66,62 @@ gulp.task 'script', ->
 gulp.task 'style', ->
 	gulp
 		.src [
-			"#{path.destination.stylesheet}/main.css"
-			"#{path.destination.stylesheet}/main.min.css"
+			"#{asset.destination.stylesheet}/main.css"
+			"#{asset.destination.stylesheet}/main.min.css"
 		], { read: false }
 		.pipe clean( { force: true } )
 
-	desktop = filter '**/desktop.sass'
-	tablet = filter '**/tablet.sass'
-	phone = filter '**/phone.sass'
+	responsive = filter ( file ) -> /\/(desktop|tablet|phone|\d+px)\.sass$/.test file.path
 
 	gulp
 		.src [
-			"#{path.source.app}/style/reset.sass"
-			"#{path.source.app}/style/bourbon.sass"
-			"#{path.source.app}/style/function.sass"
-			"#{path.source.app}/style/config.sass"
-			"#{path.source.app}/style/mixin.sass"
-			"#{path.source.app}/style/font.sass"
-			"#{path.source.app}/style/abstract.sass"
-			"#{path.source.app}/style/*.sass"
-			"#{path.source.app}/**/*.sass"
+			"#{asset.source.app}/style/reset.sass"
+			"#{asset.source.app}/style/bourbon.sass"
+			"#{asset.source.app}/style/function.sass"
+			"#{asset.source.app}/style/config.sass"
+			"#{asset.source.app}/style/mixin.sass"
+			"#{asset.source.app}/style/font.sass"
+			"#{asset.source.app}/style/abstract.sass"
+			"#{asset.source.app}/style/*.sass"
+			"#{asset.source.app}/**/*.sass"
 		]
-		.pipe desktop
-		.pipe concat 'desktop.sass'
-		.pipe insert.transform ( content ) ->
-			'@media screen and ( min-width: $breakpoint-desktop )\n\t' + content.split( '\n' ).join( '\n\t' )
-		.pipe desktop.restore()
-		.pipe tablet
-		.pipe concat 'tablet.sass'
-		.pipe insert.transform ( content ) ->
-			'@media screen and ( max-width: $breakpoint-tablet )\n\t' + content.split( '\n' ).join( '\n\t' )
-		.pipe tablet.restore()
-		.pipe phone
-		.pipe concat 'phone.sass'
-		.pipe insert.transform ( content ) ->
-			'@media screen and ( max-width: $breakpoint-phone )\n\t' + content.split( '\n' ).join( '\n\t' )
-		.pipe phone.restore()
+		# Only select media query files: desktop.sass, tablet.sass, phone.sass and ___.px
+		.pipe responsive
+		# Group media query files by their name and wrap them with an according media query
+		.pipe group(
+			group: ( file ) -> path.basename file.path
+			aggregate: ( group, files ) ->
+				name = path.basename group, '.sass'
+				query = switch name
+					when 'desktop' then 'min-width: $breakpoint-desktop'
+					when 'tablet', 'phone' then "max-width: $breakpoint-#{name}"
+					else "max-width: rem( #{name} )"
+
+				path: group
+				contents: new Buffer(
+					"@media screen and ( #{query} )" +
+					"\n" +
+					files.map( ( file ) ->
+							'\t' +
+							file
+								.contents
+								.toString()
+								.split '\n'
+								.join '\n\t'
+					).join '\n\n'
+				)
+		)
+		.pipe responsive.restore()
 		.pipe concat 'main.sass'
 		.pipe plumb()
 		.pipe sass()
 		.on 'error', (error) -> console.log( error )
 		.pipe prefix()
-		.pipe gulp.dest path.destination.stylesheet
+		.pipe gulp.dest asset.destination.stylesheet
 		.pipe reload( server )
 		.pipe minify( { keepSpecialComments: false, removeEmpty: true } )
 		.pipe rename 'main.min.css'
-		.pipe gulp.dest path.destination.stylesheet
+		.pipe gulp.dest asset.destination.stylesheet
 		.pipe reload( server )
 
 	return
@@ -119,13 +131,13 @@ gulp.task 'default', [ 'script', 'style' ]
 gulp.task 'develop', ->
 	server.listen 35729
 
-	watch { glob: "#{path.source.app}/**/*.html" }
+	watch { glob: "#{asset.source.app}/**/*.html" }
 		.on 'change', ( file ) -> server.changed file.path
 
-	watch { glob: "#{path.source.app}/**/*.coffee", name: 'CoffeeScript' }, ->
+	watch { glob: "#{asset.source.app}/**/*.coffee", name: 'CoffeeScript' }, ->
 		gulp.start 'script'
 
-	watch { glob: "#{path.source.app}/**/*.sass", name: 'Sass' }, ->
+	watch { glob: "#{asset.source.app}/**/*.sass", name: 'Sass' }, ->
 		gulp.start 'style'
 
 	return
