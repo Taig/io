@@ -35,19 +35,19 @@ gulp.task 'script', ->
 
 	# Skip empty files - otherwise the next call to wrap will create erroneous code; also skip files in the script
 	# folder as they should be globally available and therefore not be wrapped in an anonymous function
-	wrapFilter = filter ( file ) -> file.stat.size > 0 and not /script/.test file.base
+	nonempty = filter ( file ) -> file.stat.size > 0 and not /script/.test file.base
 
 	gulp
 		.src [
 			"#{path.source.app}/script/*.coffee"
 			"#{path.source.app}/**/*.coffee"
 		]
-		.pipe wrapFilter
+		.pipe nonempty
 		# Prepend a space in front of every line to have proper indention for function wrapping
 		.pipe insert.transform ( content ) -> ' ' + content.split( '\n' ).join( '\n ' )
 		# Wrap every file with an anonymous function
 		.pipe insert.wrap '( ->\n', ')()'
-		.pipe wrapFilter.restore()
+		.pipe nonempty.restore()
 		.pipe concat 'main.coffee'
 		.pipe insert.wrap '( -> ( \'use strict\'\n', ' ) )()'
 		.pipe coffee { bare: true }
@@ -69,7 +69,9 @@ gulp.task 'style', ->
 		], { read: false }
 		.pipe clean( { force: true } )
 
-	desktopFilter = filter ( file ) -> /desktop\.sass$/.test file.path
+	desktop = filter '**/desktop.sass'
+	tablet = filter '**/tablet.sass'
+	phone = filter '**/phone.sass'
 
 	gulp
 		.src [
@@ -81,14 +83,23 @@ gulp.task 'style', ->
 			"#{path.source.app}/style/font.sass"
 			"#{path.source.app}/style/abstract.sass"
 			"#{path.source.app}/style/*.sass"
-			"#{path.source.app}/**/main.sass"
-			"#{path.source.app}/**/desktop.sass"
+			"#{path.source.app}/**/*.sass"
 		]
-		.pipe desktopFilter
+		.pipe desktop
 		.pipe concat 'desktop.sass'
 		.pipe insert.transform ( content ) ->
 			'@media screen and ( min-width: $breakpoint-tablet )\n\t' + content.split( '\n' ).join( '\n\t' )
-		.pipe desktopFilter.restore()
+		.pipe desktop.restore()
+		.pipe tablet
+		.pipe concat 'tablet.sass'
+		.pipe insert.transform ( content ) ->
+			'@media screen and ( max-width: $breakpoint-tablet )\n\t' + content.split( '\n' ).join( '\n\t' )
+		.pipe tablet.restore()
+		.pipe phone
+		.pipe concat 'phone.sass'
+		.pipe insert.transform ( content ) ->
+			'@media screen and ( max-width: $breakpoint-phone )\n\t' + content.split( '\n' ).join( '\n\t' )
+		.pipe phone.restore()
 		.pipe concat 'main.sass'
 		.pipe plumb()
 		.pipe sass()
