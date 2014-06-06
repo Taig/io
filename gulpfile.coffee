@@ -88,7 +88,7 @@ gulp.task 'style', ->
 		.pipe desktop
 		.pipe concat 'desktop.sass'
 		.pipe insert.transform ( content ) ->
-			'@media screen and ( min-width: $breakpoint-tablet )\n\t' + content.split( '\n' ).join( '\n\t' )
+			'@media screen and ( min-width: $breakpoint-desktop )\n\t' + content.split( '\n' ).join( '\n\t' )
 		.pipe desktop.restore()
 		.pipe tablet
 		.pipe concat 'tablet.sass'
