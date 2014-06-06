@@ -82,7 +82,7 @@ body > header
 			+stretched-background( $color-main )
 			:height $header-subnavigation-height
 			:text-align center
-			:transition height $transition-duration * 1.5 $transition-effect
+			:animation subnavigation 1 $transition-effect $transition-duration * 2
 
 			li
 				:width percentage( 1 / 3 )
@@ -95,3 +95,10 @@ body > header
 
 				&:hover, &.selected
 					:color $color-highlight
+
+@keyframes subnavigation
+	0%
+		:height 0
+
+	100%
+		:height $header-subnavigation-height

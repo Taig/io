@@ -3,20 +3,10 @@ subnavigation = header.find '> nav ul:nth-child( 2 )'
 links = subnavigation.find 'a'
 
 if subnavigation.length
-	# Animate subnavigation after pageload
-	do ->
-		subnavigation
-			.data 'height', subnavigation.outerHeight
-			.css 'height', 0
-			.css 'height', subnavigation.data 'height'
-
 	# Animate subnavigation scroll
-	do ->
-		links.on 'click', ( event ) ->
-			event.preventDefault()
-
-			#history.pushState( null, null, target );
-			$( 'html, body' ).animate( scrollTop: ( $ ( $ this ).attr 'href' ).offset().top - header.outerHeight(), 250 );
+	links.on 'click', ( event ) ->
+		event.preventDefault()
+		$( 'html, body' ).animate( scrollTop: ( $ ( $ this ).attr 'href' ).offset().top - header.outerHeight(), 250 );
 
 	# Update navigation highlight on scroll
 	do ->
