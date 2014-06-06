@@ -39,6 +39,7 @@ if subnavigation.length
 					if top <= min and bottom >= max
 						# The visible section is larger than the viewport, it must therefore be the only visible item
 						active = this
+						return false
 					else
 						size = -1
 
