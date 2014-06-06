@@ -82,6 +82,9 @@
 	.tools
 		:padding-bottom 0
 
+		ul
+			:padding 0
+
 		li
 			:display inline-block
 			:margin-bottom $spacing
@@ -89,17 +92,22 @@
 			:vertical-align top
 			:width 20%
 
+			&:nth-child( 5n + 1 )
+				:padding-left 0
+
+			&:nth-child( 5n )
+				:padding-right 0
+
 		a
 			@extend %font-headline
 			+font-size( $font-size )
+			+icon
+				+font-size( 120px, false )
+				:display block
+				:margin-bottom $spacing * 0.25
 			:color $color-main
 			:display block
 			:font-weight 700
-
-			&:before
-				+font-size( 125px, false )
-				:display block
-				:margin-bottom $spacing * 0.25
 
 			&:hover
 				:color $color-highlight
@@ -113,12 +121,11 @@
 				:margin-left 0
 
 		a
+			+icon
+				+font-size( 60px, false )
 			:color $color-main
 			:display inline-block
 			:padding $spacing * 0.25
-
-			&:before
-				+font-size( 60px, false )
 
 			&:hover
 				:color $color-highlight
