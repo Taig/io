@@ -1,4 +1,4 @@
-@( id: String, scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
+@( scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,8 @@
 
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
 	</head>
-	<body id="@id" class="@{ "subnavigation".when( page.subnavigation.length > 0 ) }">
-		@widget.header.index( page.navigation, page.subnavigation )
+	<body id="@page.id">
+		@widget.header.index()
 
 		@content
 

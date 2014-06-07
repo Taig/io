@@ -12,20 +12,6 @@ body > header
 		:height rem( 8px )
 
 	/*
-	 * Header logo
-	 */
-	h1
-		+absolute( $left: $spacing )
-
-		.logo
-			+icon
-				+font-size( 120px, $header-navigation-height )
-			:color $color-main
-
-			&:hover
-				:color $color-highlight
-
-	/*
 	 * Header navigation
 	 */
 	nav
@@ -39,11 +25,28 @@ body > header
 		/*
 		 * Main navigation
 		 */
-		ul:nth-child( 1 )
+		> ul
 			:background-color $color-neutral
 			:text-align right
 
-			a
+			/*
+			 * Header logo
+			 */
+			> li:first-child
+				+absolute( $left: $spacing )
+
+				> a
+					@extend .icon
+					@extend .icon.logo
+					+icon
+						+font-size( 120px, $header-navigation-height )
+					:color $color-main
+					:vertical-align top
+		
+					&:hover
+						:color $color-highlight
+
+			> li:nth-child( n + 2 ) > a
 				@extend %font-headline
 				+font-size( 22px, false )
 				:color $color-main
@@ -73,12 +76,17 @@ body > header
 						:transition background-color $transition-duration $transition-effect
 						:background-color $color-main
 
+				&.selected
+					& ~ ul
+						:display block
+
 		/*
 		 * Sub navigation
 		 */
-		ul:nth-child( 2 )
+		> ul ul
 			@extend %content-width
 			+stretched-background( $color-main )
+			:display none
 			:height $header-subnavigation-height
 			:text-align center
 			:animation subnavigation 1 $transition-effect $transition-duration * 2

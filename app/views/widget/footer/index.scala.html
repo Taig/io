@@ -9,10 +9,9 @@
 	<ul>
 		<li>
 			<h4>taig.io</h4>
-			@widget.navigation.index(
-				( Some( routes.Home.index().toString() ), "Niklas Klein" ) +: page.navigation,
-				selection = None
-			)
+			<nav>
+				@widget.navigation.index( page.navigation )
+			</nav>
 		</li>
 		<li class="socials">
 			<h4>On the web</h4>

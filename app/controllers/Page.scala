@@ -1,18 +1,25 @@
 package controllers
 
-import play.api.mvc.{Controller, Call}
+import play.api.mvc.{Call, Controller}
+import models.Navigation
 
 trait Page extends Controller
 {
-	implicit protected def callToOptionString( call: Call ): Option[String] = Some( call.toString )
+	implicit protected def anyToObject[A]( any: A ): Option[A] = Option( any )
+
+	implicit protected def callToStringOption( call: Call ): Option[String] = Some( call.toString() )
 
 	implicit protected val controller: Page = this
 
-	val navigation = Seq[( Option[String], String )](
-		( routes.Portfolio.index(), "Portfolio" ),
-		( None, "Blog" ),
-		( routes.Contact.index(), "Contact" )
-	)
+	lazy val pages = Seq( Home, Portfolio, Blog, Contact )
 
-	val subnavigation = Seq[( Option[String], String )]()
+	val id: String
+
+	val item: Navigation.Item
+
+	lazy val navigation = Navigation( pages.map( _.item ): _* ).map
+	{
+		case _ @ this.item => item.copy( selected = true )
+		case item => item
+	}
 }
