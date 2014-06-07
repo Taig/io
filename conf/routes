@@ -2,4 +2,4 @@ GET		/							controllers.Home.index
 GET		/contact					controllers.Contact.index
 GET		/portfolio					controllers.Portfolio.index
 
-GET		/asset/*file				controllers.Assets.at( path="/public", file )
+GET		/asset/*file				controllers.Assets.versioned( path="/public", file )

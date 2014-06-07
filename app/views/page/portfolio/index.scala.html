@@ -1,6 +1,6 @@
 @( id: String )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( id, scripts = Seq( routes.Assets.at( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
+@views.html.index( id, scripts = Seq( routes.Assets.versioned( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
 	<section class="projects">
 		<ul>
 			<li id="web">
@@ -15,13 +15,13 @@
 					@widget.slider.image(
 						( 1 until 5 ).map(
 							x => (
-								routes.Assets.at( "image/project/cupp-computing/slide/" + x + ".png" ).toString,
+								routes.Assets.versioned( "image/project/cupp-computing/slide/" + x + ".png" ).toString,
 								"CUPP Computing website excerpt"
 							)
 						): _*
 					)
 				} {
-					<img src="@routes.Assets.at( "image/project/cupp-computing/logo.png" )" alt="Logo of CUPP Computing" />
+					<img src="@routes.Assets.versioned( "image/project/cupp-computing/logo.png" )" alt="Logo of CUPP Computing" />
 				} {
 					<a href="http://cuppcomputing.com" target="_blank">cuppcomputing.com</a>
 					<p>2014, <a href="http://minlabs.com" target="_blank">MING Labs</a></p>
@@ -36,13 +36,13 @@
 					@widget.slider.image(
 						( 1 until 5 ).map(
 							x => (
-								routes.Assets.at( "image/project/asg/slide/" + x + ".png" ).toString,
+								routes.Assets.versioned( "image/project/asg/slide/" + x + ".png" ).toString,
 								"ASG website excerpt"
 								)
 						): _*
 					)
 				} {
-					<img src="@routes.Assets.at( "image/project/asg/logo.png" )" alt="Logo of ASG" />
+					<img src="@routes.Assets.versioned( "image/project/asg/logo.png" )" alt="Logo of ASG" />
 				} {
 					<a href="http://asg.com" target="_blank">asg.com</a>
 					<p>2014, <a href="http://minlabs.com" target="_blank">MING Labs</a></p>
@@ -54,12 +54,12 @@
 					subtitle = "Resell luxury goods",
 					colors = Seq( "#474747", "#DBDBDB" )
 				) {
-					<img src="@routes.Assets.at( "image/project/reluxe.me/logo.png" )" alt="Logo of reluxe.me" />
+					<img src="@routes.Assets.versioned( "image/project/reluxe.me/logo.png" )" alt="Logo of reluxe.me" />
 				} {
 					@widget.slider.image(
 						( 1 until 7 ).map(
 							x => (
-								routes.Assets.at( "image/project/reluxe.me/slide/" + x + ".png" ).toString,
+								routes.Assets.versioned( "image/project/reluxe.me/slide/" + x + ".png" ).toString,
 								"reluxe.me website excerpt"
 								)
 						): _*
@@ -74,12 +74,12 @@
 					subtitle = "Hipster travel guide",
 					colors = Seq( "#000000", "#DE7EED", "#502D55" )
 				) {
-					<img src="@routes.Assets.at( "image/project/wthg/logo.png" )" alt="Logo of reluxe.me" />
+					<img src="@routes.Assets.versioned( "image/project/wthg/logo.png" )" alt="Logo of reluxe.me" />
 				} {
 					@widget.slider.image(
 						( 1 until 4 ).map(
 							x => (
-								routes.Assets.at( "image/project/wthg/slide/" + x + ".png" ).toString,
+								routes.Assets.versioned( "image/project/wthg/slide/" + x + ".png" ).toString,
 								"reluxe.me website excerpt"
 								)
 						): _*
@@ -101,13 +101,13 @@
 					@widget.slider.image(
 						( 1 until 5 ).map(
 							x => (
-								routes.Assets.at( "image/project/9gagr/slide/" + x + ".png" ).toString,
+								routes.Assets.versioned( "image/project/9gagr/slide/" + x + ".png" ).toString,
 								"reluxe.me website excerpt"
 								)
 						): _*
 					)
 				} {
-					<img src="@routes.Assets.at( "image/project/9gagr/logo.png" )" alt="Logo of 9GAGr" />
+					<img src="@routes.Assets.versioned( "image/project/9gagr/logo.png" )" alt="Logo of 9GAGr" />
 				} {
 					<p>2012</p>
 				}
