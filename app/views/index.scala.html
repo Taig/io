@@ -9,7 +9,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.at( "stylesheet/main.css" )">
+		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.versioned( "stylesheet/main.css" )">
 	</head>
 	<body id="@id" class="@{ "subnavigation".when( page.subnavigation.length > 0 ) }">
 		@widget.header.index( page.navigation, page.subnavigation )
@@ -18,7 +18,7 @@
 
 		@widget.footer.index()
 
-		@for( script <- routes.Assets.at( "javascript/jquery-2.1.0.min.js" ) +: scripts :+ routes.Assets.at( "javascript/main.js" ) ) {
+		@for( script <- routes.Assets.versioned( "lib/jquery/jquery.min.js" ) +: scripts :+ routes.Assets.versioned( "javascript/main.js" ) ) {
 			<script src="@script"></script>
 		}
 	</body>
