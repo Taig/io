@@ -1,7 +1,7 @@
 @( scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="@{ "subnavigation".when( page.item.child.isDefined ) }">
 	<head>
 		<meta charset="utf-8">
 
