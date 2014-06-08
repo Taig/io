@@ -4,7 +4,26 @@ subnavigation = navigation.find 'ul'
 
 if navigation.length
 	# Inject hamburger button for mobile
-	header.find( 'nav' ).prepend '<a href="#" class="icon hamburger">Toggle navigation</a>'
+	hamburger = $ '<a href="#" class="icon hamburger">Toggle navigation</a>'
+	header.find( 'nav' ).prepend hamburger
+
+	navigation = hamburger.next()
+
+	hamburger.on 'click', ( event ) ->
+		event.preventDefault()
+
+		if navigation.outerHeight() > 0
+			navigation.css 'height', ''
+		else
+			# Determine navigation height
+			height = navigation
+				.find( '> li' )
+				.filter( ':visible' )
+				.map( -> $( this ).outerHeight() )
+				.get()
+				.reduce ( a, b ) -> parseInt( a, 0 ) + parseInt( b, 0 )
+
+			navigation.css 'height', height
 
 if subnavigation.length
 	links = subnavigation.find 'a'

@@ -2,16 +2,22 @@ body > header
 	:display block
 
 	nav
+		:height auto
+		:overflow visible
+
 		> .hamburger
-			+absolute( $right: 0 )
 			+icon
 				+font-size( 50px, $header-navigation-height )
 			:color $color-main
-			:display block
+			:display inline-block
 			:text-align center
 			:width $header-navigation-height
 
 		> ul
-			> li:nth-child( n + 2 )
-				+relative( $top: $header-navigation-height )
+			:height 0
+			:overflow hidden
+			:transition height $transition-duration $transition-effect
+
+			> li, a
 				:display block
+				:text-align center
