@@ -83,6 +83,9 @@ gulp.task 'style', ->
 			"#{asset.source.app}/style/font.sass"
 			"#{asset.source.app}/style/abstract.sass"
 			"#{asset.source.app}/style/*.sass"
+			"#{asset.source.app}/**/desktop.sass"
+			"#{asset.source.app}/**/tablet.sass"
+			"#{asset.source.app}/**/phone.sass"
 			"#{asset.source.app}/**/*.sass"
 		]
 		# Only select media query files: desktop.sass, tablet.sass, phone.sass and ___.px
