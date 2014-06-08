@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'font';
-	src:url('fonts/font.eot?trhqfb');
-	src:url('fonts/font.eot?#iefixtrhqfb') format('embedded-opentype'),
-		url('fonts/font.woff?trhqfb') format('woff'),
-		url('fonts/font.ttf?trhqfb') format('truetype'),
-		url('fonts/font.svg?trhqfb#font') format('svg');
+	src:url('fonts/font.eot?j1xb2u');
+	src:url('fonts/font.eot?#iefixj1xb2u') format('embedded-opentype'),
+		url('fonts/font.woff?j1xb2u') format('woff'),
+		url('fonts/font.ttf?j1xb2u') format('truetype'),
+		url('fonts/font.svg?j1xb2u#font') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -31,6 +31,9 @@
 }
 .icon-dashes:before {
 	content: "\e605";
+}
+.icon-hamburger:before {
+	content: "\e607";
 }
 .icon-mail:before {
 	content: "\e610";
