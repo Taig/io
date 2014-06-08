@@ -1,17 +1,10 @@
-@(
-	navigation: Seq[( Option[String], String )],
-	subnavigation: Seq[( Option[String], String )]
-)( implicit request: Request[Any] )
+@()( implicit page: Page, request: Request[Any] )
 
 <header>
 	<h1>
-		<a href="@routes.Home.index()" class="icon logo">
-			taig.io - Personal portfolio of Niklas Klein
-		</a>
+		<a href="@routes.Home.index()">taig.io</a>
 	</h1>
-
 	<nav>
-		@widget.navigation.index( navigation, Some( request.path ) )
-		@widget.navigation.index( subnavigation, None )
+		@widget.navigation.index( page.navigation )
 	</nav>
 </header>

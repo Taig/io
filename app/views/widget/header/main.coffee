@@ -6,12 +6,12 @@ if subnavigation.length
 	# Animate subnavigation scroll
 	links.on 'click', ( event ) ->
 		event.preventDefault()
-		$( 'html, body' ).animate( scrollTop: ( $ ( $ this ).attr 'href' ).offset().top - header.outerHeight(), 250 );
+		$( 'html, body' ).animate( scrollTop: ( $ ( $ this )[0].hash ).offset().top - header.outerHeight(), 250 );
 
 	# Update navigation highlight on scroll
 	do ->
 		# Collect hooks
-		targets = links.map -> ( $ ( $ this ).attr 'href' ).data 'link', $ this
+		targets = links.map -> ( $ ( $ this )[0].hash ).data 'link', $ this
 
 		( $ window )
 			.on 'scroll', ->

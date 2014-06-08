@@ -1,0 +1,19 @@
+@( item: Navigation.Item )
+
+@import models.Navigation.Item
+
+@item match {
+	case Item( label, Some( url ), _, true ) => {
+		<a href="@url" class="selected">@label</a>
+	}
+	case Item( label, Some( url ), _, false ) => {
+		<a href="@url">@label</a>
+	}
+	case Item( label, None, _, _ ) => {
+		<a href="#" class="disabled">@label</a>
+	}
+}
+
+@item.child.map{ subnavigation =>
+	@widget.navigation.index( subnavigation )
+}
