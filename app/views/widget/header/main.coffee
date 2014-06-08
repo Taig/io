@@ -25,7 +25,7 @@ if navigation.length
 
 			navigation.css 'height', height
 
-if subnavigation.length
+if subnavigation.is ':visible'
 	links = subnavigation.find 'a'
 
 	# Animate subnavigation scroll
