@@ -12,7 +12,21 @@ body > header
 		:height rem( 8px )
 
 	h1
-		:display none
+		+absolute( $left: $spacing )
+		:z-index 1
+
+		&, a
+			:display block
+			:height $header-navigation-height
+
+		.logo
+			+icon
+				+font-size( 120px, $header-navigation-height )
+			:color $color-main
+			:vertical-align top
+
+			&:hover
+				:color $color-highlight
 
 	/*
 	 * Header navigation
@@ -34,62 +48,55 @@ body > header
 			:height 100%
 
 		/*
+		 * Hamburger button
+		 */
+		> .hamburger
+			:display none
+
+		/*
 		 * Main navigation
 		 */
 		> ul
 			:background-color $color-neutral
 			:text-align right
 
-			/*
-			 * Header logo
-			 */
-			> li:first-child
-				+absolute( $left: $spacing )
+			> li
+				&:first-child
+					:display none
 
 				> a
-					@extend .icon
-					@extend .logo
-					+icon
-						+font-size( 120px, $header-navigation-height )
+					@extend %font-headline
+					+font-size( 22px, false )
 					:color $color-main
-					:vertical-align top
-
-					&:hover
-						:color $color-highlight
-
-			> li:nth-child( n + 2 ) > a
-				@extend %font-headline
-				+font-size( 22px, false )
-				:color $color-main
-				:padding 0 $spacing * 0.5
-				:position relative
-				:line-height $header-navigation-height
-				:z-index 1
-
-				&.disabled
-					:color rgba( $color-main, 0.6 )
-
-				&:before
-					+absolute( 0, 0, 100%, 0 )
-					:background-color $color-highlight
-					:content ''
-					:transition bottom $transition-duration $transition-effect
-					:z-index -1
-
-				&:hover, &.selected
-					:color $color-neutral
-
+					:padding 0 $spacing * 0.5
+					:position relative
+					:line-height $header-navigation-height
+					:z-index 1
+	
+					&.disabled
+						:color rgba( $color-main, 0.6 )
+	
 					&:before
-						:bottom 0
-
-				&:active, &.selected
-					&:before
-						:transition background-color $transition-duration $transition-effect
-						:background-color $color-main
-
-				&.selected
-					& ~ ul
-						:display block
+						+absolute( 0, 0, 100%, 0 )
+						:background-color $color-highlight
+						:content ''
+						:transition bottom $transition-duration $transition-effect
+						:z-index -1
+	
+					&:hover, &.selected
+						:color $color-neutral
+	
+						&:before
+							:bottom 0
+	
+					&:active, &.selected
+						&:before
+							:transition background-color $transition-duration $transition-effect
+							:background-color $color-main
+	
+					&.selected
+						& ~ ul
+							:display block
 
 		/*
 		 * Sub navigation

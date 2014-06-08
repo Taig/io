@@ -1,2 +1,17 @@
 body > header
-	:display none
+	:display block
+
+	nav
+		> .hamburger
+			+absolute( $right: 0 )
+			+icon
+				+font-size( 50px, $header-navigation-height )
+			:color $color-main
+			:display block
+			:text-align center
+			:width $header-navigation-height
+
+		> ul
+			> li:nth-child( n + 2 )
+				+relative( $top: $header-navigation-height )
+				:display block
