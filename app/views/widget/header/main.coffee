@@ -9,6 +9,7 @@ if navigation.length
 
 	navigation = hamburger.next()
 
+	# Toggle mobile navigation
 	hamburger.on 'click', ( event ) ->
 		event.preventDefault()
 
