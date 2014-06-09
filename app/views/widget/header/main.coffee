@@ -26,6 +26,9 @@ if navigation.length
 
 			navigation.css 'height', height
 
+	# Hide mobile navigation after click on link
+	navigation.find( 'a' ).on 'click', -> hamburger.trigger 'click'
+
 if subnavigation.is ':visible'
 	links = subnavigation.find 'a'
 
