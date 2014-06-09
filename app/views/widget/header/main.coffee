@@ -13,6 +13,8 @@ if navigation.length
 	hamburger.on 'click', ( event ) ->
 		event.preventDefault()
 
+		( $ this ).toggleClass 'selected'
+
 		if navigation.outerHeight() > 0
 			navigation.css 'height', ''
 		else
