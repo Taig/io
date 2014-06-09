@@ -1,26 +1,29 @@
-body > header
-	:display block
+body
+	.subnavigation &
+		:margin-top $header-navigation-height
 
-	nav
-		:height auto
-		:overflow visible
+	> header
+		nav
+			:animation none !important
+			:height auto !important
+			:overflow visible
 
-		> .hamburger
-			+icon
-				+font-size( 50px, $header-navigation-height )
-			:color $color-main
-			:display inline-block
-			:text-align center
-			:width $header-navigation-height
-
-		> ul
-			:height 0
-			:overflow hidden
-			:transition height $transition-duration $transition-effect
-
-			> li, a
-				:display block
+			> .hamburger
+				+icon
+					+font-size( 50px, $header-navigation-height )
+				:color $color-main
+				:display inline-block
 				:text-align center
+				:width $header-navigation-height
 
-			> li a.selected ~ ul
-				:display none
+			> ul
+				:height 0
+				:overflow hidden
+				:transition height $transition-duration $transition-effect
+
+				> li, a
+					:display block
+					:text-align center
+
+				> li a.selected ~ ul
+					:display none
