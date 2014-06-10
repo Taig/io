@@ -21,9 +21,17 @@ body
 				:overflow hidden
 				:transition height $transition-duration $transition-effect
 
-				> li, a
-					:display block
-					:text-align center
+				> li
+					&, > a
+						:display block
 
-				> li a.selected ~ ul
-					:display none
+					> a
+						:background-color $color-main
+						:color $color-neutral
+						:text-align center
+
+						&.disabled
+							:color rgba( $color-neutral, 0.6 )
+
+						&.selected ~ ul
+							:display none
