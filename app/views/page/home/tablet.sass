@@ -23,7 +23,9 @@
 
 	.quote
 		blockquote
-			:padding 0 $spacing
+			:padding
+				:left $spacing
+				:right 0
 
 			&:before
-				:left rem( 10px )
+				:left rem( 5px )
