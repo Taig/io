@@ -64,3 +64,15 @@
 =icon
 	&:before
 		@content
+
+=columns( $n )
+	:width percentage( 1 / $n )
+
+	&:nth-child( -n + #{$n} )
+		:margin-top 0
+
+	&:nth-child( #{$n}n + 1 )
+		:padding-left 0
+
+	&:nth-child( #{$n}n ), &:last-child
+		:padding-right 0

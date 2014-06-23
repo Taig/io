@@ -66,39 +66,6 @@
 			&:before
 				:content '— '
 
-	.tools
-		:padding-bottom 0
-
-		ul
-			:padding 0
-
-		li
-			:display inline-block
-			:margin-bottom $spacing
-			:padding 0 $spacing * 0.25
-			:vertical-align top
-			:width 20%
-
-			&:nth-child( 5n + 1 )
-				:padding-left 0
-
-			&:nth-child( 5n )
-				:padding-right 0
-
-		a
-			@extend %font-headline
-			+font-size( $font-size )
-			+icon
-				+font-size( 120px, false )
-				:display block
-				:margin-bottom $spacing * 0.25
-			:color $color-main
-			:display block
-			:font-weight 700
-
-			&:hover
-				:color $color-highlight
-
 	.contact
 		li
 			:display inline-block
