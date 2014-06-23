@@ -18,8 +18,6 @@ sass = require 'gulp-ruby-sass'
 uglify = require 'gulp-uglify'
 watch = require 'gulp-watch'
 
-server = require( 'tiny-lr' )()
-
 asset =
 	destination:
 		image: 'public/image'
@@ -57,11 +55,11 @@ gulp.task 'script', ->
 		.pipe coffee bare: true
 		.on 'error', console.log
 		.pipe gulp.dest asset.destination.javascript
-		.pipe reload server
+		.pipe reload()
 		.pipe uglify()
 		.pipe rename 'main.min.js'
 		.pipe gulp.dest asset.destination.javascript
-		.pipe reload server
+		.pipe reload()
 
 	return
 
@@ -123,21 +121,21 @@ gulp.task 'style', ->
 		.pipe prefix()
 		.pipe combineMediaQuery()
 		.pipe gulp.dest asset.destination.stylesheet
-		.pipe reload server
+		.pipe reload()
 		.pipe minify keepSpecialComments: false, removeEmpty: true
 		.pipe rename 'main.min.css'
 		.pipe gulp.dest asset.destination.stylesheet
-		.pipe reload server
+		.pipe reload()
 
 	return
 
 gulp.task 'default', [ 'script', 'style' ]
 
 gulp.task 'develop', ->
-	server.listen 35729
+	reload.listen()
 
 	watch glob: "#{asset.source.app}/**/*.html"
-		.on 'change', ( file ) -> server.changed file.path
+		.on 'change', reload.changed
 
 	watch glob: "#{asset.source.app}/**/*.coffee", name: 'CoffeeScript', -> gulp.start 'script'
 
