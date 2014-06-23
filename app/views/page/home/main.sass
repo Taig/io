@@ -2,29 +2,20 @@
 	.teaser
 		@extend %full-height
 		@extend %full-width
-		+fixed( $top: $header-navigation-height, $right: 0, $left: 0 )
 		:background url( '../image/portrait.jpg' ) right center no-repeat
 		:background-size cover
 		:color $color-neutral
-		:z-index -1
+		:display table
+		:width 100%
 
 		&:before
 			:content none
 
-		/*
-		 * Vertical alignment hack
-		 */
-		&:after, header
-			:display inline-block
-			:vertical-align middle
-
-		&:after
-			:content ''
-			:height 100%
-
 		header
+			:display table-cell
+			:vertical-align middle
 			:margin 0
-			:padding 0 $spacing * 0.5
+			:padding $spacing * 0.5
 			:position relative
 			:text-shadow rem( 2px ) rem( 2px ) rgba( black, 0.75 )
 
@@ -43,9 +34,6 @@
 				:font-family $font-icon
 
 	.about-me
-		:margin-top $full-height
-		:margin-top 100vh
-
 		p
 			:column-count 2
 			:column-gap $spacing
