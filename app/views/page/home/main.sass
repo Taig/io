@@ -1,11 +1,8 @@
 #home
-	:margin-top $full-height
-	:margin-top 100vh
-
 	.teaser
 		@extend %full-height
 		@extend %full-width
-		+fixed( $header-navigation-height, 0, 0, 0 )
+		+fixed( $top: $header-navigation-height, $right: 0, $left: 0 )
 		:background url( '../image/portrait.jpg' ) right center no-repeat
 		:background-size cover
 		:color $color-neutral
@@ -26,6 +23,7 @@
 			:height 100%
 
 		header
+			:margin 0
 			:padding 0 $spacing * 0.5
 			:position relative
 			:text-shadow rem( 2px ) rem( 2px ) rgba( black, 0.75 )
@@ -45,6 +43,9 @@
 				:font-family $font-icon
 
 	.about-me
+		:margin-top $full-height
+		:margin-top 100vh
+
 		p
 			:column-count 2
 			:column-gap $spacing

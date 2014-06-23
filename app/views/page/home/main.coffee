@@ -3,8 +3,13 @@ home = $ '#home'
 if home.length
 	teaser = home.find '.teaser'
 	header = teaser.find 'header'
-	offset = home.find( '.about-me' ).offset().top - home.find( '> header' ).outerHeight()
+	about = home.find '.about-me'
 
+	# Readjust 2nd section margin
+	about.css 'margin-top', teaser.outerHeight()
+
+	# Parallax teaser
+	offset = about.offset().top - home.find( '> header' ).outerHeight()
 	( $ window ).on 'scroll', ->
 		value = $( this ).scrollTop() / offset
 
