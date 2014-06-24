@@ -1,0 +1,16 @@
+article.project
+	.teaser
+		:padding $spacing * 2 $spacing
+
+	aside
+		> .tile
+			:display inline-block
+			:vertical-align top
+
+			> *
+				+absolute( 0, 0, 0, 0 )
+
+	footer
+		:background-color $color-main
+		:color $color-neutral
+		:padding $spacing * 0.25

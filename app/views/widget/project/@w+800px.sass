@@ -1,0 +1,65 @@
+article.project
+	:display table
+	:position relative
+	:width 100%
+
+	.teaser, aside
+		:display table-cell
+		:vertical-align middle
+		:width 50%
+
+	aside
+		> .tile
+			/*
+			 * Show color tile
+			 */
+			&:after
+				+absolute( $top: 0 )
+				:content ''
+				:height 100%
+
+			> *
+				+absolute( 0, 0, 0, 0 )
+
+			&:nth-child( 1 )
+				:margin-left 50%
+
+				&:after
+					:right 100%
+					:width 100%
+
+			&:nth-child( 2 )
+				&:after
+					:left 100%
+					:right -9999px
+
+	footer
+		+absolute( $bottom: $spacing, $left: 0 )
+		:width 50%
+		:z-index 1
+
+	&:nth-of-type( even )
+		.teaser
+			:left 50%
+
+			&:before
+				:left 0
+				:right -9999px
+
+		footer
+			:left 50%
+
+		aside
+			:position relative
+			:right 50%
+
+			> .tile
+				&:nth-child( 1 )
+					:margin-top 50%
+
+					&:after
+						:left -9999px
+						:width auto
+
+				&:nth-child( 2 )
+					+absolute( 0 )

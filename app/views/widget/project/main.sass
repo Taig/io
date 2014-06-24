@@ -1,16 +1,8 @@
 article.project
 	:color $color-neutral
-	:display table
-	:position relative
-	:width 100%
-
-	.teaser, aside
-		:display table-cell
-		:vertical-align middle
-		:width 50%
 
 	.teaser
-		:padding $spacing
+		:padding $spacing $spacing $spacing * 2
 		:position relative
 		:z-index 1
 
@@ -32,28 +24,9 @@ article.project
 				:display block
 				:padding-top 100%
 
-			/*
-			 * Show color tile
-			 */
-			&:after
-				+absolute( $top: 0 )
-				:content ''
-				:height 100%
-
-			> *
-				+absolute( 0, 0, 0, 0 )
-
-			&:nth-child( 1 )
-				:margin-left 50%
-
-				&:after
-					:right 100%
-					:width 100%
-
-			&:nth-child( 2 )
-				&:after
-					:left 100%
-					:right -9999px
+		img
+			:height 100%
+			:width 100%
 
 	.slider
 		:overflow hidden
@@ -69,10 +42,7 @@ article.project
 				:z-index 1
 
 	footer
-		+absolute( $bottom: $spacing, $left: 0 )
 		:font-weight 300
-		:width 50%
-		:z-index 1
 
 		p
 			+font-size( $font-size * 0.75 )
