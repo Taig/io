@@ -19,7 +19,7 @@
 =line-height( $value, $base: 16 )
 	:line-height $value
 
-	@if unit( $value ) == 'px'
+	@if type_of( $value ) == 'number' and unit( $value ) == 'px'
 		:line-height rem( $value, $base )
 
 =placeholder
@@ -61,8 +61,16 @@
 =relative( $top: false, $right: false, $bottom: false, $left: false )
 	+position( relative, $top, $right, $bottom, $left )
 
-=icon
-	&:before
+=icon( $position: before )
+	&:#{$position}
+		:display inline-block
+		:font-family $font-icon
+		:font-style normal
+		:font-variant normal
+		:font-weight normal
+		:line-height 1
+		:speak none
+		:text-transform none
 		@content
 
 =columns( $n )

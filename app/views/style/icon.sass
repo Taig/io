@@ -1,11 +1,9 @@
 .icon
+	+icon
+		+font-size( 20px, false )
 	:line-height 0
 	:font-size 0
 
-	+icon
-		@extend %icon
-		+font-size( 20px, false )
-
 	@each $id, $code in ( android: '611', bitcoin: '612', coffeescript: '613', css3: '601', dash: '600', dashes: '605', github: '614', hamburger: '607', hangouts: '603', html5: '602', jquery: '616', laravel: '617', logo: '60f', mail: '610', playframework: '618', quote: '606', sass: '619', scala: '604', svg: '61a', twitter: '61b' )
-		&.#{$id}:before
+		&.#{$id}:before, &.#{$id}:after
 			:content '\e#{$code}'
