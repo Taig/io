@@ -1,7 +1,6 @@
 gulp = require 'gulp'
 path = require 'path'
 
-clean = require 'gulp-clean'
 combineMediaQuery = require 'gulp-combine-media-queries'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
@@ -28,13 +27,6 @@ asset =
 		asset: 'asset'
 
 gulp.task 'script', ->
-	gulp
-		.src [
-			"#{asset.destination.javascript}/main.js"
-			"#{asset.destination.javascript}/main.min.js"
-		], read: false
-		.pipe clean force: true
-
 	# Skip empty files - otherwise the next call to wrap will create erroneous code; also skip files in the script
 	# folder as they should be globally available and therefore not be wrapped in an anonymous function
 	nonempty = filter ( file ) -> file.stat.size > 0 and not /script/.test file.base
@@ -64,13 +56,6 @@ gulp.task 'script', ->
 	return
 
 gulp.task 'style', ->
-	gulp
-		.src [
-			"#{asset.destination.stylesheet}/main.css"
-			"#{asset.destination.stylesheet}/main.min.css"
-		], read: false
-		.pipe clean force: true
-
 	gulp
 		.src [
 			"#{asset.source.app}/style/reset.sass"
