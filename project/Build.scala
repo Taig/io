@@ -14,6 +14,7 @@ object Build extends sbt.Build
 				"org.webjars" % "jquery" % "2.1.1"
 			),
 			name := "taig.io",
+			scalacOptions ++= Seq( "-feature", "-language:implicitConversions" ),
 			scalaVersion := "2.11.1",
 			version := "1.0.0"
 		)
