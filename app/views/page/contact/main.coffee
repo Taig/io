@@ -2,7 +2,7 @@ contact = $ '#contact'
 
 if contact.length
 	map  = $ '<div />'
-	( $ '#map' ).prepend( map )
+	( $ '#map' ).prepend map
 
 	new google.maps.Map( map[0],
 	{

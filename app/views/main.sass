@@ -54,7 +54,10 @@ body
 	:color $color-main
 
 	> section, > footer
-		:padding $spacing
+		@extend %content-padding
+		:padding
+			:bottom $spacing
+			:top $spacing
 
 	> section > *, > footer
 		@extend %content-width
@@ -74,6 +77,11 @@ body
 
 		h4
 			:margin-bottom $spacing * 0.75
+
+		> p
+			:column-count 2
+			:column-gap $spacing
+			:text-align justify
 
 		p
 			:hyphens auto

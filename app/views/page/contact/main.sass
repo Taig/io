@@ -62,6 +62,11 @@
 				:color $color-main
 
 	.legal
+		@extend %full-width
+
+		> *:not( #map )
+			@extend %content-padding
+
 		#map
 			@extend %full-height
 			@extend %full-width
@@ -70,7 +75,7 @@
 			:position relative
 
 			> div
-				:height 100%
+				+absolute( 0, 0, 0, 0 )
 
 			noscript img
 				+absolute( -9999px, -9999px, -9999px, -9999px )
@@ -111,7 +116,3 @@
 				.city
 					:font-weight 700
 					:margin-top $spacing * 0.25
-
-		p
-			:column-count 2
-			:text-align justify

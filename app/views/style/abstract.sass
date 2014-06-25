@@ -15,6 +15,15 @@
 	:font-family $font-family-headline
 	:text-transform uppercase
 
+%content-padding
+	@media screen and ( max-width: $breakpoint-tablet )
+		:padding
+			:left $spacing * 0.5
+			:right $spacing * 0.5
+	:padding
+		:left $spacing
+		:right $spacing
+
 %content-width
 	:margin
 		:left auto
