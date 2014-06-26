@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'font';
-	src:url('fonts/font.eot?u5yqq');
-	src:url('fonts/font.eot?#iefixu5yqq') format('embedded-opentype'),
-		url('fonts/font.woff?u5yqq') format('woff'),
-		url('fonts/font.ttf?u5yqq') format('truetype'),
-		url('fonts/font.svg?u5yqq#font') format('svg');
+	src:url('fonts/font.eot?ls57d1');
+	src:url('fonts/font.eot?#iefixls57d1') format('embedded-opentype'),
+		url('fonts/font.woff?ls57d1') format('woff'),
+		url('fonts/font.ttf?ls57d1') format('truetype'),
+		url('fonts/font.svg?ls57d1#font') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -61,6 +61,9 @@
 }
 .icon-html5:before {
 	content: "\e602";
+}
+.icon-intellij:before {
+	content: "\e608";
 }
 .icon-jquery:before {
 	content: "\e616";
