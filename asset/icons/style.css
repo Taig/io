@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'font';
-	src:url('fonts/font.eot?ls57d1');
-	src:url('fonts/font.eot?#iefixls57d1') format('embedded-opentype'),
-		url('fonts/font.woff?ls57d1') format('woff'),
-		url('fonts/font.ttf?ls57d1') format('truetype'),
-		url('fonts/font.svg?ls57d1#font') format('svg');
+	src:url('fonts/font.eot?-ds8pc9');
+	src:url('fonts/font.eot?#iefix-ds8pc9') format('embedded-opentype'),
+		url('fonts/font.woff?-ds8pc9') format('woff'),
+		url('fonts/font.ttf?-ds8pc9') format('truetype'),
+		url('fonts/font.svg?-ds8pc9#font') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -47,6 +47,9 @@
 .icon-bitcoin:before {
 	content: "\e612";
 }
+.icon-chrome:before {
+	content: "\e609";
+}
 .icon-coffeescript:before {
 	content: "\e613";
 }
@@ -64,6 +67,9 @@
 }
 .icon-intellij:before {
 	content: "\e608";
+}
+.icon-java:before {
+	content: "\e60a";
 }
 .icon-jquery:before {
 	content: "\e616";
