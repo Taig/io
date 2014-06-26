@@ -76,10 +76,13 @@ if subnavigation.is ':visible'
 					if active is null or size > active.data 'size'
 						active = this.data 'size', size
 
-			links.removeClass 'selected'
-
 			if active isnt null
-				active.data( 'link' ).addClass 'selected'
-				history.pushState( null, null, '#' + active.attr 'id' )
-			else
-				history.pushState( null, null, window.location.pathname + window.location.search )
+				hash = '#' + active.attr 'id'
+
+				if document.location.hash isnt hash
+					links.removeClass 'selected'
+					active.data( 'link' ).addClass 'selected'
+					history.replaceState( null, null, hash )
+			else if active is null and document.location.hash.length > 0
+				links.removeClass 'selected'
+				history.replaceState( null, null, window.location.pathname + window.location.search )
