@@ -79,9 +79,11 @@ if subnavigation.is ':visible'
 			if active isnt null
 				hash = '#' + active.attr 'id'
 
-				if document.location.hash isnt hash
+				if links.filter '.selected' isnt active
 					links.removeClass 'selected'
 					active.data( 'link' ).addClass 'selected'
+
+				if document.location.hash isnt hash
 					history.replaceState( null, null, hash )
 			else if active is null and document.location.hash.length > 0
 				links.removeClass 'selected'
