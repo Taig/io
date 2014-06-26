@@ -14,6 +14,9 @@
 			&:first-child
 				:margin-top 0
 
+			&.recipient:before
+				:background-color #343838
+
 		label
 			:display inline-block
 			:font-weight 300
@@ -39,7 +42,9 @@
 			:width 80%
 
 			&[disabled]
-				:color rgba( $color-main, 0.6 )
+				:background transparent
+				:border rem( 2px ) solid $color-neutral
+				:color $color-neutral
 				:font-weight 300
 				:text-transform uppercase
 
