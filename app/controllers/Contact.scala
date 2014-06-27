@@ -26,7 +26,7 @@ object Contact extends Page
 	def submit = Action( implicit request =>
 	{
 		form.bindFromRequest.fold(
-			implicit e => BadRequest( contact.index() ),
+			e => BadRequest( contact.index( e ) ),
 			_ => Redirect( routes.Contact.index() )
 		)
 	} )
