@@ -1,4 +1,4 @@
-@( name: String, placeholder: String, value: String, tabindex: Int, form: Option[Form[_]] )
+@( name: String, placeholder: String, value: String, tabindex: Int )( implicit form: Option[Form[_]] = None )
 
 <textarea
 	name="@name"

@@ -1,7 +1,7 @@
-@( typ: String, name: String, placeholder: String, value: String, tabindex: Int, form: Option[Form[_]] )
+@( typ: String, name: String, placeholder: String, value: String, tabindex: Int )( implicit form: Option[Form[_]] = None )
 
 @if( typ == "textarea" ) {
-	@widget.textarea( name, placeholder, value, tabindex, form )
+	@widget.textarea( name, placeholder, value, tabindex )
 } else {
 	<input
 		type="@typ"
