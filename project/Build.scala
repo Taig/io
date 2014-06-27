@@ -10,6 +10,7 @@ object Build extends sbt.Build
 		.enablePlugins( PlayScala )
 		.settings(
 			libraryDependencies ++= Seq(
+				"com.typesafe.play.plugins" %% "play-plugins-mailer" % "2.3.0",
 				"com.mohiva" %% "play-html-compressor" % "0.3",
 				"org.webjars" % "jquery" % "2.1.1"
 			),
