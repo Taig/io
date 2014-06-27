@@ -1,0 +1,13 @@
+@( typ: String, name: String, placeholder: String, value: String, tabindex: Int, form: Option[Form[_]] )
+
+@if( typ == "textarea" ) {
+	@widget.textarea( name, placeholder, value, tabindex, form )
+} else {
+	<input
+		type="@typ"
+		name="@name"
+		placeholder="@placeholder"
+		value="@form.map( _.apply( name ).value.getOrElse( value ) )"
+		tabindex="@tabindex"
+		class="@form.map( form => if( form.errors( name ).length > 0 ) "error" else "" )">
+}

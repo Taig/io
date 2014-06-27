@@ -21,15 +21,12 @@ object Contact extends Page
 		)( Details.apply )( Details.unapply )
 	)
 
-	def index( implicit form: Option[Form[Details]] = None ) = Action
-	{
-		implicit request =>
-		{
-			Ok( contact.index( form ) )
-		}
-	}
+	def index = Action( implicit request => Ok( contact.index( None ) ) )
 
-	def submit = TODO()
+	def submit = Action( implicit request =>
+	{
+		form.bindFromRequest.fold( form => BadRequest( contact.index( form ) ), _ => Redirect( routes.Contact.index() ) )
+	} )
 
 	case class Details( name: Option[String], mail: Option[String], message: String )
 }

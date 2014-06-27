@@ -4,4 +4,5 @@
 	name="@name"
 	placeholder="@placeholder"
 	tabindex="@tabindex"
-	class="@form.map( form => if( form.errors( name ).length > 0 ) "error" else "" )">@value</textarea>
+	class="@form.map( form => if( form.errors( name ).length > 0 ) "error" else "" )"
+>@form.map( _.apply( name ).value.getOrElse( value ) )</textarea>
