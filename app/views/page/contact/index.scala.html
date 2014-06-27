@@ -1,4 +1,4 @@
-@()( implicit page: Page, request: Request[Any] )
+@( form: Option[Form[Contact.Details]] )( implicit page: Page, request: Request[Any] )
 
 @views.html.index( scripts = Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
 	<section class="form">
@@ -6,7 +6,7 @@
 			<h2>Send me an email</h2>
 			<h3>Or message me on <a href="#">Hangouts</a> / <a href="#">Twitter</a></h3>
 		</header>
-		<form>
+		<form method="post" action="@routes.Contact.submit()">
 			<fieldset class="recipient">
 				<label>To</label>
 				<input type="text" value="my.email@@taig.io" disabled>
@@ -14,9 +14,9 @@
 
 			<fieldset>
 				<label>From</label>
-				<input type="text" placeholder="Name" tabindex="1">
-				<input type="email" placeholder="Email" tabindex="2">
-				<textarea placeholder="Message" tabindex="3"></textarea>
+				<input type="text" name="name" placeholder="Name" tabindex="1">
+				<input type="email" name="mail" placeholder="Email" tabindex="2">
+				@widget.textarea( "message", "Message", "", 3, form )
 			</fieldset>
 
 			<fieldset>

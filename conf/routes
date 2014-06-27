@@ -1,5 +1,6 @@
 GET		/							controllers.Home.index
 GET		/contact					controllers.Contact.index
+POST	/contact/submit				controllers.Contact.submit
 GET		/portfolio					controllers.Portfolio.index
 
 GET		/asset/*file				controllers.Assets.versioned( path="/public", file )

@@ -1,0 +1,7 @@
+@( name: String, placeholder: String, value: String, tabindex: Int, form: Option[Form[_]] )
+
+<textarea
+	name="@name"
+	placeholder="@placeholder"
+	tabindex="@tabindex"
+	class="@form.map( form => if( form.errors( name ).length > 0 ) "error" else "" )">@value</textarea>
