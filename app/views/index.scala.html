@@ -1,7 +1,7 @@
-@( scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
+@( scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any], flash: Flash )
 
 <!DOCTYPE html>
-<html lang="en" class="@{ "subnavigation".when( page.item.child.isDefined ) }">
+<html lang="en" class="@{ "subnavigation".when( page.item.child.isDefined ) } @{ "notification".when( !flash.isEmpty ) }">
 	<head>
 		<meta charset="utf-8">
 

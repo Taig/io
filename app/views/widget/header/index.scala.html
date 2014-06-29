@@ -1,4 +1,4 @@
-@()( implicit page: Page, request: Request[Any] )
+@()( implicit page: Page, request: Request[Any], flash: Flash )
 
 <header>
 	<h1>
@@ -8,4 +8,8 @@
 	<nav>
 		@widget.navigation.index( page.navigation )
 	</nav>
+
+	@if( !flash.isEmpty ) {
+		@widget.notification.index( flash.data.head._1, flash.data.head._2 )
+	}
 </header>

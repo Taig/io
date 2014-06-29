@@ -7,7 +7,8 @@ html, body
 	:overflow-x hidden
 
 a, button
-	:transition color $transition-duration $transition-effect, background-color $transition-duration $transition-effect
+	&, &:before, &:after
+		:transition color $transition-duration $transition-effect, background-color $transition-duration $transition-effect
 
 a
 	:color $color-highlight

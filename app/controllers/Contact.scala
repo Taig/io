@@ -27,7 +27,7 @@ object Contact extends Page
 	{
 		form.bindFromRequest.fold(
 			e => BadRequest( contact.index( e ) ),
-			_ => Redirect( routes.Contact.index() )
+			_ => Redirect( routes.Contact.index() ).flashing( "success" -> "Your message has been sent" )
 		)
 	} )
 

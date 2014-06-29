@@ -1,4 +1,4 @@
-@( form: Option[Form[Contact.Details]] = None )( implicit page: Page, request: Request[Any] )
+@( form: Option[Form[Contact.Details]] = None )( implicit page: Page, request: Request[Any], flash: Flash )
 
 @views.html.index( scripts = Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
 	<section class="form">
