@@ -1,8 +1,15 @@
 body
 	:margin-top $header-navigation-height
+	:transition margin-top $transition-effect $transition-duration
 
 	.subnavigation &
 		:margin-top $header-navigation-height + $header-subnavigation-height
+
+	.notification &
+		:margin-top $header-navigation-height + $notification-height
+
+	.subnavigation.notification &
+		:margin-top $header-navigation-height + $header-subnavigation-height + $notification-height
 
 	> header
 		+fixed( $top: 0, $right: 0, $left: 0 )
