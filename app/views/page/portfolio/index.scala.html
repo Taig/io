@@ -1,6 +1,6 @@
-@()( implicit page: Page, request: Request[Any], flash: Flash )
+@( notification: Option[Notification] = None )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( scripts = Seq( routes.Assets.versioned( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
+@views.html.index( notification, Seq( routes.Assets.versioned( "javascript/jquery.spin-1.0.3.min.js" ).toString ) ) {
 	<section class="projects">
 		<ul>
 			<li id="web">

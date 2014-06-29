@@ -1,6 +1,6 @@
-@( typ: String, message: String )
+@( notification: Notification )
 
-<div class="notification @typ">
-	<p>@message</p>
+<div class="notification @( notification.`type` )">
+	<p>@( notification.message )</p>
 	<a href="" class="icon close">Close</a>
 </div>

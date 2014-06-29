@@ -24,21 +24,22 @@ body
 			:background rgba( $color-main, 0.08 )
 			:content ''
 			:height rem( 8px )
-	
+
 		h1
 			+absolute( $left: $spacing )
 			:z-index 1
-	
+
 			&, a
 				:display block
 				:height $header-navigation-height
-	
+
 			.logo
-				+icon
-					+font-size( 120px, $header-navigation-height )
 				:color $color-main
 				:vertical-align top
-	
+
+				&:before
+					+font-size( 120px, $header-navigation-height )
+
 				&:hover
 					:color $color-highlight
 	
@@ -61,59 +62,59 @@ body
 			li, a
 				:display inline-block
 				:height $header-navigation-height
-	
+
 			.hamburger, > ul > li > a
 				:position relative
 				:z-index 1
-	
+
 				&:after
 					+absolute( 0, 0, 100%, 0 )
 					:background-color $color-highlight
 					:content ''
 					:transition bottom $transition-duration $transition-effect
 					:z-index -1
-	
+
 				&:hover, &.selected
 					:color $color-neutral
-	
+
 					&:after
 						:bottom 0
-	
+
 				&:active, &.selected
 					&:after
 						:transition background-color $transition-duration $transition-effect
 						:background-color $color-main
-	
+
 			/*
 			 * Hamburger button
 			 */
 			.hamburger
 				:display none
-	
+
 			/*
 			 * Main navigation
 			 */
 			> ul
 				:text-align right
-	
+
 				> li
 					&:first-child
 						:display none
-	
+
 					> a
 						@extend %font-headline
 						+font-size( 22px, false )
 						:color $color-main
 						:padding 0 $spacing * 0.5
 						:line-height $header-navigation-height
-	
+
 						&.disabled
 							:color rgba( $color-main, 0.6 )
-	
+
 						&.selected
 							& ~ ul
 								:display block
-	
+
 			/*
 			 * Sub navigation
 			 */

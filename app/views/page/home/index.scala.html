@@ -1,6 +1,6 @@
-@()( implicit page: Page, request: Request[Any], flash: Flash )
+@( notification: Option[Notification] = None )( implicit page: Page, request: Request[Any] )
 
-@views.html.index() {
+@views.html.index( notification ) {
 	<section class="teaser">
 		<header>
 			<h2>Hi, my name is Nik</h2>

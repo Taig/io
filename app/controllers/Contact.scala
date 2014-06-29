@@ -1,5 +1,6 @@
 package controllers
 
+import models.Notification
 import play.api.mvc._
 import views.html.page.contact
 import models.Navigation.Item
@@ -26,8 +27,8 @@ object Contact extends Page
 	def submit = Action( implicit request =>
 	{
 		form.bindFromRequest.fold(
-			e => BadRequest( contact.index( e ) ),
-			_ => Redirect( routes.Contact.index() ).flashing( "success" -> "Your message has been sent" )
+			e => BadRequest( contact.index( e, Notification.Error( "Please fix the red-rimmed fields" ) ) ),
+			_ => Ok( contact.index( None, Notification.Success( "Your message has been sent" ) ) )
 		)
 	} )
 

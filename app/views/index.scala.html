@@ -1,7 +1,7 @@
-@( scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any], flash: Flash )
+@( notification: Option[Notification], scripts: Seq[String] = Seq() )( content: Html )( implicit page: Page, request: Request[Any] )
 
 <!DOCTYPE html>
-<html lang="en" class="@{ "subnavigation".when( page.item.child.isDefined ) } @{ "notification".when( !flash.isEmpty ) }">
+<html lang="en" class="@page.item.child.map( _ => "subnavigation" ) @notification.map( _ => "notification" )">
 	<head>
 		<meta charset="utf-8">
 
@@ -12,7 +12,7 @@
 		<link media="all" type="text/css" rel="stylesheet" href="@routes.Assets.versioned( "stylesheet/main.css" )">
 	</head>
 	<body id="@page.id">
-		@widget.header.index()
+		@widget.header.index( notification )
 
 		@content
 
