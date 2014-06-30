@@ -1,9 +1,10 @@
 div.notification
 	:background $color-main
 	:color $color-neutral
-	:display table
 	:left 0
 	:padding $spacing * 0.5 $spacing
+	:position absolute
+	:text-align right
 	:transition left $transition-effect $transition-duration
 	:width 100%
 
@@ -17,21 +18,21 @@ div.notification
 	&.success
 		:background-color $color-success
 
-	p, .close
-		:display table-cell
-
 	p
 		:font-weight 300
+		:padding 0 $spacing
 		:text-align center
 		:vertical-align middle
 
 	.close
+		+absolute( $top: 50%, $right: $spacing )
+		:color $color-neutral
+		:margin-top rem( -20px )
 		:vertical-align top
 		:width rem( 40px )
 
 		&:before
 			+font-size( 40px, false )
-			:color $color-neutral
 
 		&:hover
 			:color $color-highlight
