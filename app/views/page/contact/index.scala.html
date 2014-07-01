@@ -1,27 +1,18 @@
 @( form: Option[Form[Contact.Details]] = None, notification: Option[Notification] = None )( implicit page: Page, request: Request[Any] )
 
-@views.html.index( notification, Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
+@views.html.index( "Contact | Niklas Klein", notification, Seq( "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" ) ) {
 	<section class="form">
 		<header>
 			<h2>Send me an email</h2>
 			<h3>Or message me on <a href="#">Hangouts</a> / <a href="#">Twitter</a></h3>
 		</header>
 		<form method="post" action="@routes.Contact.submit()" novalidate="novalidate">
-			<fieldset class="recipient">
-				<label>To</label>
-				<input type="text" value="my.email@@taig.io" disabled>
-			</fieldset>
+			@widget.input( "text", "name", "Your name", "", 1 )( form )
+			@widget.input( "email", "mail", "Your email", "", 2 )( form )
+			@widget.textarea( "message", "Your message", "", 3 )( form )
 
-			<fieldset>
-				<label>From</label>
-				@widget.input( "text", "name", "Name", "", 1 )( form )
-				@widget.input( "email", "mail", "Email", "", 2 )( form )
-				@widget.textarea( "message", "Message", "", 3 )( form )
-			</fieldset>
-
-			<fieldset>
-				<button type="submit" class="button">Send</button>
-			</fieldset>
+			<button type="submit" class="button">Send</button>
+			<p>... or <a href="mailto:#">open in email client</a></p>
 		</form>
 	</section>
 

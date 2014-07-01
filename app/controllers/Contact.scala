@@ -27,7 +27,7 @@ object Contact extends Page
 	def submit = Action( implicit request =>
 	{
 		form.bindFromRequest.fold(
-			e => BadRequest( contact.index( e, Notification.Error( "Please fix the red-rimmed fields" ) ) ),
+			form => BadRequest( contact.index( form, Notification.Error( "Please fix the red-rimmed fields" ) ) ),
 			_ => Ok( contact.index( None, Notification.Success( "Your message has been sent" ) ) )
 		)
 	} )

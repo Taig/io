@@ -3,27 +3,10 @@
 		:padding-bottom 0
 
 		form
-			:margin-bottom $spacing
-
-		fieldset
 			+stretched-background( $color-highlight )
-			:color $color-neutral
-			:margin-top $spacing * 0.5
-			:padding 0 0 $spacing * 0.5 0
-
-			&:first-child
-				:margin-top 0
-
-			&.recipient:before
-				:background-color #343838
-
-		label
-			:display inline-block
-			:font-weight 300
-			:padding rem( 43px ) rem( 24px ) 0 0
-			:text-align right
-			:text-transform uppercase
-			:width 10%
+			:padding
+				:bottom $spacing * 0.5
+				:top $spacing * 0.5
 
 		input, textarea
 			+font-size( 20px )
@@ -34,19 +17,12 @@
 				:text-transform uppercase
 			:border 2px solid transparent
 			:color $color-main
-			:float right
+			:display block
 			:font-family $font-family-headline
 			:margin $spacing * 0.5 10% 0 0
 			:outline none
 			:padding rem( 14px ) rem( 10px )
-			:width 80%
-
-			&[disabled]
-				:background transparent
-				:border rem( 2px ) solid $color-neutral
-				:color $color-neutral
-				:font-weight 300
-				:text-transform uppercase
+			:width 100%
 
 			&:focus
 				:border-color $color-main
@@ -61,16 +37,25 @@
 			:height rem( 350px )
 			:resize none
 
+		.button, p a
+			:color $color-neutral
+
 		.button
 			:border-color $color-neutral
-			:color $color-neutral
-			:margin-top $spacing * 0.5
+			:margin-top $spacing
 
 			&:before
 				:background-color $color-neutral
 
 			&:hover
-				:color $color-main
+				:color $color-highlight
+
+		p
+			:margin-top $spacing * 0.5
+
+			a
+				&:hover
+					:color $color-main
 
 	.legal
 		@extend %full-width
